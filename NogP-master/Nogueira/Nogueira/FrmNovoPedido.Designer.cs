@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtPonto_Referencia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtComplemento = new System.Windows.Forms.TextBox();
@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBuscarTel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,13 +52,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Número de Telefone:";
             // 
-            // textBox1
+            // txtTelefone
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(224, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtTelefone.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTelefone.Location = new System.Drawing.Point(224, 53);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(196, 20);
+            this.txtTelefone.TabIndex = 1;
             // 
             // txtPonto_Referencia
             // 
@@ -139,12 +140,23 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Nome:";
             // 
+            // btnBuscarTel
+            // 
+            this.btnBuscarTel.Location = new System.Drawing.Point(455, 49);
+            this.btnBuscarTel.Name = "btnBuscarTel";
+            this.btnBuscarTel.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarTel.TabIndex = 22;
+            this.btnBuscarTel.Text = "Buscar";
+            this.btnBuscarTel.UseVisualStyleBackColor = true;
+            this.btnBuscarTel.Click += new System.EventHandler(this.btnBuscarTel_Click);
+            // 
             // FrmNovoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(583, 383);
+            this.Controls.Add(this.btnBuscarTel);
             this.Controls.Add(this.txtPonto_Referencia);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtComplemento);
@@ -155,11 +167,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.label1);
             this.Name = "FrmNovoPedido";
             this.Text = "FrmNovoPedido";
-            this.Load += new System.EventHandler(this.FrmNovoPedido_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,7 +179,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtPonto_Referencia;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtComplemento;
@@ -179,5 +190,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBuscarTel;
     }
 }

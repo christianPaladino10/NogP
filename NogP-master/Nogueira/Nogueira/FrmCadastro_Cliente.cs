@@ -35,10 +35,5 @@ namespace Nogueira
 
             clienteBusiness.Cadastrar(dadosCliente);
         }
-
-        private void FrmCadastro_Cliente_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

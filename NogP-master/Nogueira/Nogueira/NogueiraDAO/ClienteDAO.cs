@@ -77,5 +77,39 @@ namespace Nogueira.NogueiraDAO
                 if (conn != null) conn.Dispose();
             }
         }
+
+        internal void BuscarPorTelefone(string telefone, ClienteDTO dadosCliente)
+        {
+            ConectarAccess();
+
+            string comando = "SELECT * FROM Clientes WHERE telefone = @telefone";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+            cmd.Parameters.Add("@telefone", OleDbType.VarChar).Value = telefone;
+            try
+            {
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows == false)
+                {
+                    throw new Exception("Número de Telefone não cadastrado");
+                }
+
+                dr.Read();
+                dadosCliente.Nome = Convert.ToString(dr["nome"]);
+                dadosCliente.Endereco = Convert.ToString(dr["endereco"]);
+                dadosCliente.Numero = Convert.ToString(dr["numero"]);
+                dadosCliente.PontoReferencia = Convert.ToString(dr["ponto_referencia"]);
+                dadosCliente.Complemento = Convert.ToString(dr["complemento"]);
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
     }
 }

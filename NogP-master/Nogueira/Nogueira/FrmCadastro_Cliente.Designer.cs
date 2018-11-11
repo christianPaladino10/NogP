@@ -214,7 +214,6 @@
             this.Name = "FrmCadastro_Cliente";
             this.Text = "Cadastro de Cliente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmCadastro_Cliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
