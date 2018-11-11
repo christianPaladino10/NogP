@@ -22,26 +22,22 @@ namespace Nogueira
         private void btnNovoPedido_Click(object sender, EventArgs e)
         {
             _objForm?.Close();
-            _objForm = new FrmNovoPedido
-            {
-                TopLevel = false,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
-
-            panelBaseForm.Controls.Add(_objForm);
-            _objForm.Show();
+            _objForm = new FrmNovoPedido();
+            ChamadaDeForm(_objForm);
         }
 
-        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             _objForm?.Close();
-            _objForm = new FrmCadastro_Cliente
-            {
-                TopLevel = false,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
+            _objForm = new FrmCadastro_Cliente();
+            ChamadaDeForm(_objForm);
+        }
+
+        private void ChamadaDeForm(Form form)
+        {
+            _objForm.TopLevel = false;
+            _objForm.FormBorderStyle = FormBorderStyle.None;
+            _objForm.Dock = DockStyle.Fill;
 
             panelBaseForm.Controls.Add(_objForm);
             _objForm.Show();

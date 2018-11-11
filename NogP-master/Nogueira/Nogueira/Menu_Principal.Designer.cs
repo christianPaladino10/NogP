@@ -88,7 +88,7 @@
             this.btnCadastrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarCliente.Textcolor = System.Drawing.Color.Gold;
             this.btnCadastrarCliente.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Click += new System.EventHandler(this.bunifuFlatButton2_Click);
+            this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
             // 
             // btnNovoPedido
             // 
