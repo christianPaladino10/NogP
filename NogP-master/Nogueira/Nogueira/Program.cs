@@ -16,7 +16,8 @@ namespace Nogueira
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Cadastro_Cliente());
+            Application.Run(new Menu_Principal());
         }
     }
 }
