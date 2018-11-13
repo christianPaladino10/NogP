@@ -91,7 +91,7 @@ namespace Nogueira.NogueiraDAO
                 OleDbDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows == false)
                 {
-                    throw new Exception("Número de Telefone não cadastrado");
+                    throw new Exception("Número de Telefone não encontrado");
                 }
 
                 dr.Read();

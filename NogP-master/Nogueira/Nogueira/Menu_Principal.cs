@@ -33,6 +33,13 @@ namespace Nogueira
             ChamadaDeForm(_objForm);
         }
 
+        private void btnMenuAdm_Click(object sender, EventArgs e)
+        {
+            _objForm?.Close();
+            _objForm = new FrmLogin();
+            ChamadaDeForm(_objForm);
+        }
+
         private void ChamadaDeForm(Form form)
         {
             _objForm.TopLevel = false;

@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_Principal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenuAdm = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCadastrarCliente = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNovoPedido = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelBaseForm = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -43,7 +43,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.bunifuFlatButton3);
+            this.panel1.Controls.Add(this.btnMenuAdm);
             this.panel1.Controls.Add(this.btnCadastrarCliente);
             this.panel1.Controls.Add(this.btnNovoPedido);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -52,6 +52,43 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(418, 546);
             this.panel1.TabIndex = 0;
+            // 
+            // btnMenuAdm
+            // 
+            this.btnMenuAdm.Activecolor = System.Drawing.Color.Transparent;
+            this.btnMenuAdm.BackColor = System.Drawing.Color.DarkRed;
+            this.btnMenuAdm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenuAdm.BorderRadius = 0;
+            this.btnMenuAdm.ButtonText = "      Administrador";
+            this.btnMenuAdm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuAdm.DisabledColor = System.Drawing.Color.Gray;
+            this.btnMenuAdm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuAdm.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnMenuAdm.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnMenuAdm.Iconimage")));
+            this.btnMenuAdm.Iconimage_right = null;
+            this.btnMenuAdm.Iconimage_right_Selected = null;
+            this.btnMenuAdm.Iconimage_Selected = null;
+            this.btnMenuAdm.IconMarginLeft = 0;
+            this.btnMenuAdm.IconMarginRight = 0;
+            this.btnMenuAdm.IconRightVisible = true;
+            this.btnMenuAdm.IconRightZoom = 0D;
+            this.btnMenuAdm.IconVisible = true;
+            this.btnMenuAdm.IconZoom = 90D;
+            this.btnMenuAdm.IsTab = true;
+            this.btnMenuAdm.Location = new System.Drawing.Point(0, 466);
+            this.btnMenuAdm.Margin = new System.Windows.Forms.Padding(5);
+            this.btnMenuAdm.Name = "btnMenuAdm";
+            this.btnMenuAdm.Normalcolor = System.Drawing.Color.DarkRed;
+            this.btnMenuAdm.OnHovercolor = System.Drawing.Color.DarkSalmon;
+            this.btnMenuAdm.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnMenuAdm.selected = false;
+            this.btnMenuAdm.Size = new System.Drawing.Size(413, 65);
+            this.btnMenuAdm.TabIndex = 3;
+            this.btnMenuAdm.Text = "      Administrador";
+            this.btnMenuAdm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuAdm.Textcolor = System.Drawing.Color.Gold;
+            this.btnMenuAdm.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuAdm.Click += new System.EventHandler(this.btnMenuAdm_Click);
             // 
             // btnCadastrarCliente
             // 
@@ -137,42 +174,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // bunifuFlatButton3
-            // 
-            this.bunifuFlatButton3.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton3.BackColor = System.Drawing.Color.DarkRed;
-            this.bunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton3.BorderRadius = 0;
-            this.bunifuFlatButton3.ButtonText = "      Administrador";
-            this.bunifuFlatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton3.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton3.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton3.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton3.Iconimage")));
-            this.bunifuFlatButton3.Iconimage_right = null;
-            this.bunifuFlatButton3.Iconimage_right_Selected = null;
-            this.bunifuFlatButton3.Iconimage_Selected = null;
-            this.bunifuFlatButton3.IconMarginLeft = 0;
-            this.bunifuFlatButton3.IconMarginRight = 0;
-            this.bunifuFlatButton3.IconRightVisible = true;
-            this.bunifuFlatButton3.IconRightZoom = 0D;
-            this.bunifuFlatButton3.IconVisible = true;
-            this.bunifuFlatButton3.IconZoom = 90D;
-            this.bunifuFlatButton3.IsTab = true;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(0, 466);
-            this.bunifuFlatButton3.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuFlatButton3.Name = "bunifuFlatButton3";
-            this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.DarkRed;
-            this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.DarkSalmon;
-            this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(413, 65);
-            this.bunifuFlatButton3.TabIndex = 3;
-            this.bunifuFlatButton3.Text = "      Administrador";
-            this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton3.Textcolor = System.Drawing.Color.Gold;
-            this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
             // panelBaseForm
             // 
             this.panelBaseForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,7 +205,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuFlatButton btnNovoPedido;
         private Bunifu.Framework.UI.BunifuFlatButton btnCadastrarCliente;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        private Bunifu.Framework.UI.BunifuFlatButton btnMenuAdm;
         private System.Windows.Forms.Panel panelBaseForm;
     }
 }

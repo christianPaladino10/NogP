@@ -20,3 +20,5 @@ C:\Users\ND43341\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogu
 C:\Users\ND43341\source\repos\NogP2\NogP-master\Nogueira\Nogueira\bin\Debug\Bunifu_UI_v1.5.3.dll
 C:\Users\ND43341\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.FrmCadastro_Cliente.resources
 C:\Users\ND43341\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.FrmNovoPedido.resources
+C:\Users\ND43341\Source\Repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.FrmLogin.resources
+C:\Users\ND43341\Source\Repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.FrmPainelADM.resources

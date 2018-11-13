@@ -64,6 +64,7 @@
             // 
             this.txtPonto_Referencia.Location = new System.Drawing.Point(114, 286);
             this.txtPonto_Referencia.Name = "txtPonto_Referencia";
+            this.txtPonto_Referencia.ReadOnly = true;
             this.txtPonto_Referencia.Size = new System.Drawing.Size(320, 20);
             this.txtPonto_Referencia.TabIndex = 21;
             // 
@@ -80,6 +81,7 @@
             // 
             this.txtComplemento.Location = new System.Drawing.Point(218, 222);
             this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.ReadOnly = true;
             this.txtComplemento.Size = new System.Drawing.Size(216, 20);
             this.txtComplemento.TabIndex = 19;
             // 
@@ -96,6 +98,7 @@
             // 
             this.txtNumero.Location = new System.Drawing.Point(114, 222);
             this.txtNumero.Name = "txtNumero";
+            this.txtNumero.ReadOnly = true;
             this.txtNumero.Size = new System.Drawing.Size(66, 20);
             this.txtNumero.TabIndex = 17;
             // 
@@ -112,6 +115,7 @@
             // 
             this.txtEndereco.Location = new System.Drawing.Point(114, 166);
             this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.ReadOnly = true;
             this.txtEndereco.Size = new System.Drawing.Size(320, 20);
             this.txtEndereco.TabIndex = 15;
             // 
@@ -128,6 +132,7 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(114, 107);
             this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(320, 20);
             this.txtNome.TabIndex = 13;
             // 
