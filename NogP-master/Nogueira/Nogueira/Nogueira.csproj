@@ -69,10 +69,16 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPainelADM.cs">
+    <Compile Include="View ADM\FrmPizza.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPainelADM.Designer.cs">
+    <Compile Include="View ADM\FrmPizza.Designer.cs">
+      <DependentUpon>FrmPizza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View ADM\FrmPainelADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View ADM\FrmPainelADM.Designer.cs">
       <DependentUpon>FrmPainelADM.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu_Principal.cs">
@@ -99,7 +105,7 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPainelADM.resx">
+    <EmbeddedResource Include="View ADM\FrmPainelADM.resx">
       <DependentUpon>FrmPainelADM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_Principal.resx">

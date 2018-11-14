@@ -50,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(418, 546);
+            this.panel1.Size = new System.Drawing.Size(386, 546);
             this.panel1.TabIndex = 0;
             // 
             // btnMenuAdm
@@ -82,12 +82,12 @@
             this.btnMenuAdm.OnHovercolor = System.Drawing.Color.DarkSalmon;
             this.btnMenuAdm.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMenuAdm.selected = false;
-            this.btnMenuAdm.Size = new System.Drawing.Size(413, 65);
+            this.btnMenuAdm.Size = new System.Drawing.Size(383, 65);
             this.btnMenuAdm.TabIndex = 3;
             this.btnMenuAdm.Text = "      Administrador";
             this.btnMenuAdm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuAdm.Textcolor = System.Drawing.Color.Gold;
-            this.btnMenuAdm.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuAdm.TextFont = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuAdm.Click += new System.EventHandler(this.btnMenuAdm_Click);
             // 
             // btnCadastrarCliente
@@ -119,12 +119,12 @@
             this.btnCadastrarCliente.OnHovercolor = System.Drawing.Color.DarkSalmon;
             this.btnCadastrarCliente.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCadastrarCliente.selected = false;
-            this.btnCadastrarCliente.Size = new System.Drawing.Size(413, 65);
+            this.btnCadastrarCliente.Size = new System.Drawing.Size(381, 65);
             this.btnCadastrarCliente.TabIndex = 2;
             this.btnCadastrarCliente.Text = "      Cadastrar Cliente";
             this.btnCadastrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarCliente.Textcolor = System.Drawing.Color.Gold;
-            this.btnCadastrarCliente.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCliente.TextFont = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
             // 
             // btnNovoPedido
@@ -156,19 +156,19 @@
             this.btnNovoPedido.OnHovercolor = System.Drawing.Color.DarkSalmon;
             this.btnNovoPedido.OnHoverTextColor = System.Drawing.Color.White;
             this.btnNovoPedido.selected = false;
-            this.btnNovoPedido.Size = new System.Drawing.Size(413, 65);
+            this.btnNovoPedido.Size = new System.Drawing.Size(383, 65);
             this.btnNovoPedido.TabIndex = 1;
             this.btnNovoPedido.Text = "        Novo Pedido";
             this.btnNovoPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovoPedido.Textcolor = System.Drawing.Color.Gold;
-            this.btnNovoPedido.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoPedido.TextFont = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovoPedido.Click += new System.EventHandler(this.btnNovoPedido_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 77);
+            this.pictureBox1.Location = new System.Drawing.Point(75, 66);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(230, 203);
             this.pictureBox1.TabIndex = 0;
@@ -177,9 +177,9 @@
             // panelBaseForm
             // 
             this.panelBaseForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBaseForm.Location = new System.Drawing.Point(418, 0);
+            this.panelBaseForm.Location = new System.Drawing.Point(386, 0);
             this.panelBaseForm.Name = "panelBaseForm";
-            this.panelBaseForm.Size = new System.Drawing.Size(635, 546);
+            this.panelBaseForm.Size = new System.Drawing.Size(667, 546);
             this.panelBaseForm.TabIndex = 1;
             // 
             // Menu_Principal
