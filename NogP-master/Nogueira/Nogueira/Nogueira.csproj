@@ -51,28 +51,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCadastro_Cliente.cs">
+    <Compile Include="NogueiraBusiness\IngredienteBusiness.cs" />
+    <Compile Include="NogueiraBusiness\PizzaBusiness.cs" />
+    <Compile Include="NogueiraDAO\IngredienteDAO.cs" />
+    <Compile Include="NogueiraDAO\PizzaDAO.cs" />
+    <Compile Include="NogueiraDTO\IngredienteDTO.cs" />
+    <Compile Include="NogueiraDTO\PizzaDTO.cs" />
+    <Compile Include="View ADM\Pizza\FrmCadastrarPizza.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadastro_Cliente.Designer.cs">
+    <Compile Include="View ADM\Pizza\FrmCadastrarPizza.Designer.cs">
+      <DependentUpon>FrmCadastrarPizza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmCadastro_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCadastro_Cliente.Designer.cs">
       <DependentUpon>FrmCadastro_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNovoPedido.cs">
+    <Compile Include="View\FrmNovoPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNovoPedido.Designer.cs">
+    <Compile Include="View\FrmNovoPedido.Designer.cs">
       <DependentUpon>FrmNovoPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="View\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="View\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View ADM\FrmPizza.cs">
+    <Compile Include="View ADM\Pizza\FrmPizza.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View ADM\FrmPizza.Designer.cs">
+    <Compile Include="View ADM\Pizza\FrmPizza.Designer.cs">
       <DependentUpon>FrmPizza.cs</DependentUpon>
     </Compile>
     <Compile Include="View ADM\FrmPainelADM.cs">
@@ -96,13 +108,13 @@
     <Compile Include="NogueiraDTO\LoginDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmCadastro_Cliente.resx">
+    <EmbeddedResource Include="View\FrmCadastro_Cliente.resx">
       <DependentUpon>FrmCadastro_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNovoPedido.resx">
+    <EmbeddedResource Include="View\FrmNovoPedido.resx">
       <DependentUpon>FrmNovoPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="View\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View ADM\FrmPainelADM.resx">
@@ -120,6 +132,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View ADM\Pizza\FrmCadastrarPizza.resx">
+      <DependentUpon>FrmCadastrarPizza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View ADM\Pizza\FrmPizza.resx">
+      <DependentUpon>FrmPizza.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

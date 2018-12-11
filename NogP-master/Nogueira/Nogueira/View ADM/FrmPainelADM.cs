@@ -30,8 +30,16 @@ namespace Nogueira
         private void btnPainelPizza_Click(object sender, EventArgs e)
         {
             _objForm?.Close();
-            _objForm = new FrmPizza();
-            ChamadaDeForm(_objForm);
+            FrmPizza _objFormPizza = new FrmPizza
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+                nomeUsuario = nomeUser
+            };
+
+            panelAdm.Controls.Add(_objFormPizza);
+            _objFormPizza.Show();
         }
 
         private void ChamadaDeForm(Form form)
