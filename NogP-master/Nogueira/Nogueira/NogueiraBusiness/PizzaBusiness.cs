@@ -20,7 +20,7 @@ namespace Nogueira.NogueiraBusiness
 		{
 			PizzaDAO pizzaDAO = new PizzaDAO();
 			int idPizza = ((int)pizzaDAO.BuscarIdPizza(dadosPizza)); 
-			//Christian Master
+			//Christian teste
 		}
 	}
 }
