@@ -44,5 +44,33 @@ namespace Nogueira.NogueiraDAO
 
 			return dtIngredientes;
 		}
+
+		internal void CadastrarPizzaHasIngredientes(int idPizza, List<string> listIngrediente)
+		{
+			ConectarAccess();
+
+			foreach (var item in listIngrediente)
+			{
+				string comando = "INSERT INTO Pizza_has_Ingredientes (Id_Pizza, Id_Ingrediente)" +
+									"values(@Id_Pizza, @Id_Ingrediente)";
+
+				OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+				cmd.Parameters.Add("@Id_Pizza", OleDbType.VarChar).Value = idPizza;
+				cmd.Parameters.Add("@Id_Ingrediente", OleDbType.Decimal).Value = item;
+
+				try
+				{
+					cmd.ExecuteNonQuery();
+				}
+				catch (Exception E)
+				{
+					MessageBox.Show(E.Message);
+				}
+			}
+
+			if (conn.State == ConnectionState.Open) conn.Close();
+			if (conn != null) conn.Dispose();
+		}
 	}
 }

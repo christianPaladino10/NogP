@@ -65,18 +65,23 @@ namespace Nogueira
             else
             {
                 dadosPizza.Nome_Sabor = txtSaborPizza.Text.Trim();
+				if (pizzaBusiness.PizzaCadastrada(dadosPizza.Nome_Sabor))
+				{
+					MessageBox.Show("Sabor de Pizza já cadastrada no Sistema!");
+				}
+				else
+				{
+					var listIngrediente = new List<string>();
+					BuscarIngredientes(listIngrediente);
 
-                string preco_aux = maskedTextBoxPreco.Text.Replace("R$ ", "").Trim();
-                string preco = preco_aux.Replace(".", ",");
-                double precoPizza = double.Parse(preco);
-                dadosPizza.Preco = precoPizza;
+					listIngrediente = listIngrediente.Distinct().ToList();
 
-				pizzaBusiness.Cadastrar(dadosPizza);
+					string preco = maskedTextBoxPreco.Text.Replace("R$ ", "").Trim();
+					dadosPizza.Preco = double.Parse(preco);
+					pizzaBusiness.Cadastrar(dadosPizza);
 
-				var listIngrediente = new List<string>();
-				BuscarIngredientes(listIngrediente);
-
-				pizzaBusiness.CadastrarIngredientesPizza(listIngrediente, dadosPizza);
+					pizzaBusiness.CadastrarIngredientesPizza(listIngrediente, dadosPizza);
+				}
 			}
         }
 

@@ -19,8 +19,25 @@ namespace Nogueira.NogueiraBusiness
 		internal void CadastrarIngredientesPizza(List<string> listIngrediente, PizzaDTO dadosPizza)
 		{
 			PizzaDAO pizzaDAO = new PizzaDAO();
-			int idPizza = ((int)pizzaDAO.BuscarIdPizza(dadosPizza)); 
-			//Christian teste
+			IngredienteDAO ingredientesDAO = new IngredienteDAO();
+
+			int idPizza = ((int)pizzaDAO.BuscarIdPizza(dadosPizza));
+			ingredientesDAO.CadastrarPizzaHasIngredientes(idPizza, listIngrediente);
+		
 		}
+
+		internal bool PizzaCadastrada(string nome_Sabor)
+		{
+			PizzaDAO pizzaDAO = new PizzaDAO();
+			if (pizzaDAO.PizzaCadastrada(nome_Sabor))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}			
+		}
+
 	}
 }

@@ -25,12 +25,11 @@ namespace Nogueira.NogueiraDAO
 			ConectarAccess();
 
 			int id_Pizza;
-			string comando = "SELECT Id_Pizza FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor AND Preco = @Preco";
+			string comando = "SELECT Id_Pizza FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
 
 			OleDbCommand cmd = new OleDbCommand(comando, conn);
 
 			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
-			cmd.Parameters.Add("@Preco", OleDbType.Decimal).Value = dadosPizza.Preco;
 
 			try
 			{
@@ -49,6 +48,41 @@ namespace Nogueira.NogueiraDAO
 
 		}
 
+		internal bool PizzaCadastrada(string nome_Sabor)
+		{
+			ConectarAccess();
+
+			string result = "";
+			string comando = "SELECT Nome_Sabor FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
+
+			OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = nome_Sabor;
+
+			try
+			{
+				result = (string)cmd.ExecuteScalar();
+			}
+			catch (Exception E)
+			{
+				MessageBox.Show(E.Message);
+			}
+			finally
+			{
+				if (conn.State == ConnectionState.Open) conn.Close();
+				if (conn != null) conn.Dispose();
+			}
+
+			if (result == string.Empty || result == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+
 		internal void Cadastrar(PizzaDTO dadosPizza)
 		{
 			ConectarAccess();
@@ -59,7 +93,11 @@ namespace Nogueira.NogueiraDAO
 			OleDbCommand cmd = new OleDbCommand(comando, conn);
 
 			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
-			cmd.Parameters.Add("@Preco", OleDbType.Decimal).Value = dadosPizza.Preco;
+			string preco = dadosPizza.Preco.ToString();
+			string aux = preco.Substring(0, 2);
+			string aux2 = preco.Substring(2, 2);
+			preco = aux + "," + aux2;
+			cmd.Parameters.Add("@Preco", OleDbType.Currency).Value = preco;
 
 			try
 			{
