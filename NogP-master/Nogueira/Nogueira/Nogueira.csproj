@@ -52,11 +52,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NogueiraBusiness\IngredienteBusiness.cs" />
+    <Compile Include="NogueiraBusiness\MotoboyBusiness.cs" />
     <Compile Include="NogueiraBusiness\PizzaBusiness.cs" />
     <Compile Include="NogueiraDAO\IngredienteDAO.cs" />
+    <Compile Include="NogueiraDAO\MotoboyDAO.cs" />
     <Compile Include="NogueiraDAO\PizzaDAO.cs" />
     <Compile Include="NogueiraDTO\IngredienteDTO.cs" />
+    <Compile Include="NogueiraDTO\MotoboyDTO.cs" />
     <Compile Include="NogueiraDTO\PizzaDTO.cs" />
+    <Compile Include="View ADM\Motoboy\FrmCadastrarMotoboy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View ADM\Motoboy\FrmCadastrarMotoboy.Designer.cs">
+      <DependentUpon>FrmCadastrarMotoboy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View ADM\Motoboy\FrmMotoboy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View ADM\Motoboy\FrmMotoboy.Designer.cs">
+      <DependentUpon>FrmMotoboy.cs</DependentUpon>
+    </Compile>
     <Compile Include="View ADM\Pizza\FrmCadastrarPizza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +123,12 @@
     <Compile Include="NogueiraDTO\LoginDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View ADM\Motoboy\FrmCadastrarMotoboy.resx">
+      <DependentUpon>FrmCadastrarMotoboy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View ADM\Motoboy\FrmMotoboy.resx">
+      <DependentUpon>FrmMotoboy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCadastro_Cliente.resx">
       <DependentUpon>FrmCadastro_Cliente.cs</DependentUpon>
     </EmbeddedResource>

@@ -9,47 +9,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nogueira.View_ADM.Motoboy;
 
 namespace Nogueira
 {
-    public partial class FrmPainelADM : Form
-    {
-        private Form _objForm;
-        public string nomeUser { get; set; }
+	public partial class FrmPainelADM : Form
+	{
+		FrmPizza _objFormPizza = new FrmPizza();
+		FrmMotoboy _objFormMotoboy = new FrmMotoboy();
 
-        public FrmPainelADM()
-        {
-            InitializeComponent();
-        }
+		public string nomeUser { get; set; }
 
-        private void FrmPainelADM_Load(object sender, EventArgs e)
-        {
-            lblNome.Text = this.nomeUser;
-        }
+		public FrmPainelADM()
+		{
+			InitializeComponent();
+		}
 
-        private void btnPainelPizza_Click(object sender, EventArgs e)
-        {
-            _objForm?.Close();
-            FrmPizza _objFormPizza = new FrmPizza
-            {
-                TopLevel = false,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill,
-                nomeUsuario = nomeUser
-            };
+		private void FrmPainelADM_Load(object sender, EventArgs e)
+		{
+			lblNome.Text = this.nomeUser;
+		}
 
-            panelAdm.Controls.Add(_objFormPizza);
-            _objFormPizza.Show();
-        }
+		private void btnPainelPizza_Click(object sender, EventArgs e)
+		{
+			_objFormMotoboy?.Close();
 
-        private void ChamadaDeForm(Form form)
-        {
-            _objForm.TopLevel = false;
-            _objForm.FormBorderStyle = FormBorderStyle.None;
-            _objForm.Dock = DockStyle.Fill;
+			_objFormPizza = new FrmPizza();
+			_objFormPizza.TopLevel = false;
+			_objFormPizza.FormBorderStyle = FormBorderStyle.None;
+			_objFormPizza.Dock = DockStyle.Fill;
+			_objFormPizza.nomeUsuario = nomeUser;
 
-            panelAdm.Controls.Add(_objForm);
-            _objForm.Show();
-        }
-    }
+			panelAdm.Controls.Add(_objFormPizza);
+			_objFormPizza.Show();
+		}
+
+		private void btnPainelMotoboy_Click(object sender, EventArgs e)
+		{
+			_objFormPizza?.Close();
+
+			_objFormMotoboy = new FrmMotoboy();
+			_objFormMotoboy.TopLevel = false;
+			_objFormMotoboy.FormBorderStyle = FormBorderStyle.None;
+			_objFormMotoboy.Dock = DockStyle.Fill;
+			_objFormMotoboy.nomeUsuario = nomeUser;
+
+			panelAdm.Controls.Add(_objFormMotoboy);
+			_objFormMotoboy.Show();
+		}
+	}
 }

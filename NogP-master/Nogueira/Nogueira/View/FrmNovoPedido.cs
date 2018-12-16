@@ -40,5 +40,5 @@ namespace Nogueira
                 txtComplemento.Text = dadosCliente.Complemento;
             }      
         }
-    }
+	}
 }
