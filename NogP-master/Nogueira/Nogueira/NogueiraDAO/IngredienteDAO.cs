@@ -31,18 +31,22 @@ namespace Nogueira.NogueiraDAO
 			try
 			{
 				dtIngredientes.Load(cmd.ExecuteReader());
+
+				var rw = dtIngredientes.NewRow();
+				rw[1] = "";
+				dtIngredientes.Rows.InsertAt(rw, 0);
+				return dtIngredientes;
 			}
 			catch (Exception E)
 			{
 				MessageBox.Show(E.Message);
+				return null;
 			}
 			finally
 			{
 				if (conn.State == ConnectionState.Open) conn.Close();
 				if (conn != null) conn.Dispose();
 			}
-
-			return dtIngredientes;
 		}
 
 		internal void CadastrarPizzaHasIngredientes(int idPizza, List<string> listIngrediente)

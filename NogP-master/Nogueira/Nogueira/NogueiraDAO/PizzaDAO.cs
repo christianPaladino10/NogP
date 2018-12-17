@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Common;
 
 namespace Nogueira.NogueiraDAO
 {
@@ -80,6 +81,63 @@ namespace Nogueira.NogueiraDAO
 			else
 			{
 				return true;
+			}
+		}
+
+		internal double AlterarTextBoxConformeCombo(string nome_Sabor)
+		{
+			ConectarAccess();
+
+			string comando = "SELECT Preco FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
+
+			OleDbCommand cmd = new OleDbCommand(comando, conn);
+			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = nome_Sabor;
+
+			try
+			{
+				var result = cmd.ExecuteScalar();
+				double preco = double.Parse(result.ToString());
+				return preco;
+			}
+			catch (Exception E)
+			{
+				MessageBox.Show(E.Message);
+				return 0;
+			}
+			finally
+			{
+				if (conn.State == ConnectionState.Open) conn.Close();
+				if (conn != null) conn.Dispose();
+			}
+		}
+
+		internal DataTable BuscarTodasPizzas()
+		{
+			ConectarAccess();
+
+			DataTable dt = new DataTable();
+			string comando = "SELECT * FROM Pizzas";
+
+			OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+			try
+			{
+				dt.Load(cmd.ExecuteReader());
+
+				var rw = dt.NewRow();  
+				rw[1] = "";                  
+				dt.Rows.InsertAt(rw, 0);
+				return dt;
+			}
+			catch (Exception E)
+			{
+				MessageBox.Show(E.Message);
+				return null;
+			}
+			finally
+			{
+				if (conn.State == ConnectionState.Open) conn.Close();
+				if (conn != null) conn.Dispose();
 			}
 		}
 

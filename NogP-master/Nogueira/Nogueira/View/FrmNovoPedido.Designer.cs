@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.label22 = new System.Windows.Forms.Label();
 			this.btnBuscarTel = new System.Windows.Forms.Button();
 			this.txtPonto_Referencia = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
@@ -42,30 +43,39 @@
 			this.txtNome = new System.Windows.Forms.TextBox();
 			this.txtEndereco = new System.Windows.Forms.TextBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.comboBox4 = new System.Windows.Forms.ComboBox();
-			this.label15 = new System.Windows.Forms.Label();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.maskedTextBoxPreco = new System.Windows.Forms.MaskedTextBox();
+			this.btnIncluir1Sabor = new System.Windows.Forms.Button();
+			this.txtQtd1Sabor = new System.Windows.Forms.TextBox();
 			this.label16 = new System.Windows.Forms.Label();
-			this.button3 = new System.Windows.Forms.Button();
+			this.label15 = new System.Windows.Forms.Label();
+			this.comboBoxPizza1Sabor = new System.Windows.Forms.ComboBox();
+			this.label14 = new System.Windows.Forms.Label();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.button4 = new System.Windows.Forms.Button();
-			this.textBox8 = new System.Windows.Forms.TextBox();
-			this.label18 = new System.Windows.Forms.Label();
-			this.comboBox5 = new System.Windows.Forms.ComboBox();
-			this.label19 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.maskedTextBoxPrecoMeio2 = new System.Windows.Forms.MaskedTextBox();
+			this.maskedTextBoxPrecoMeio1 = new System.Windows.Forms.MaskedTextBox();
 			this.label17 = new System.Windows.Forms.Label();
-			this.comboBox6 = new System.Windows.Forms.ComboBox();
+			this.comboBoxMeio2 = new System.Windows.Forms.ComboBox();
 			this.label20 = new System.Windows.Forms.Label();
+			this.btnIncluirMeio = new System.Windows.Forms.Button();
+			this.label18 = new System.Windows.Forms.Label();
+			this.comboBoxMeio1 = new System.Windows.Forms.ComboBox();
+			this.label19 = new System.Windows.Forms.Label();
+			this.labelMotoboy = new System.Windows.Forms.Label();
+			this.comboBoxMotoboy = new System.Windows.Forms.ComboBox();
+			this.radioButton1 = new System.Windows.Forms.RadioButton();
+			this.radioButton2 = new System.Windows.Forms.RadioButton();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.groupBox4.SuspendLayout();
 			this.groupBox5.SuspendLayout();
 			this.groupBox6.SuspendLayout();
+			this.groupBox7.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.Controls.Add(this.label22);
 			this.groupBox4.Controls.Add(this.btnBuscarTel);
 			this.groupBox4.Controls.Add(this.txtPonto_Referencia);
 			this.groupBox4.Controls.Add(this.label6);
@@ -78,12 +88,21 @@
 			this.groupBox4.Controls.Add(this.label4);
 			this.groupBox4.Controls.Add(this.txtNome);
 			this.groupBox4.Controls.Add(this.txtEndereco);
-			this.groupBox4.Location = new System.Drawing.Point(24, 27);
+			this.groupBox4.Location = new System.Drawing.Point(23, 102);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(577, 176);
+			this.groupBox4.Size = new System.Drawing.Size(522, 176);
 			this.groupBox4.TabIndex = 48;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Dados Cliente";
+			// 
+			// label22
+			// 
+			this.label22.AutoSize = true;
+			this.label22.Location = new System.Drawing.Point(224, 60);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(56, 13);
+			this.label22.TabIndex = 60;
+			this.label22.Text = "Endereço:";
 			// 
 			// btnBuscarTel
 			// 
@@ -99,7 +118,7 @@
 			this.txtPonto_Referencia.Location = new System.Drawing.Point(222, 136);
 			this.txtPonto_Referencia.Name = "txtPonto_Referencia";
 			this.txtPonto_Referencia.ReadOnly = true;
-			this.txtPonto_Referencia.Size = new System.Drawing.Size(319, 20);
+			this.txtPonto_Referencia.Size = new System.Drawing.Size(270, 20);
 			this.txtPonto_Referencia.TabIndex = 58;
 			// 
 			// label6
@@ -184,24 +203,77 @@
 			this.txtEndereco.Location = new System.Drawing.Point(222, 77);
 			this.txtEndereco.Name = "txtEndereco";
 			this.txtEndereco.ReadOnly = true;
-			this.txtEndereco.Size = new System.Drawing.Size(319, 20);
+			this.txtEndereco.Size = new System.Drawing.Size(270, 20);
 			this.txtEndereco.TabIndex = 52;
 			// 
 			// groupBox5
 			// 
-			this.groupBox5.Controls.Add(this.button3);
-			this.groupBox5.Controls.Add(this.textBox6);
+			this.groupBox5.Controls.Add(this.maskedTextBoxPreco);
+			this.groupBox5.Controls.Add(this.btnIncluir1Sabor);
+			this.groupBox5.Controls.Add(this.txtQtd1Sabor);
 			this.groupBox5.Controls.Add(this.label16);
-			this.groupBox5.Controls.Add(this.textBox5);
 			this.groupBox5.Controls.Add(this.label15);
-			this.groupBox5.Controls.Add(this.comboBox4);
+			this.groupBox5.Controls.Add(this.comboBoxPizza1Sabor);
 			this.groupBox5.Controls.Add(this.label14);
-			this.groupBox5.Location = new System.Drawing.Point(24, 243);
+			this.groupBox5.Location = new System.Drawing.Point(515, 305);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(577, 101);
+			this.groupBox5.Size = new System.Drawing.Size(444, 160);
 			this.groupBox5.TabIndex = 49;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Pizza de 1 Sabor";
+			// 
+			// maskedTextBoxPreco
+			// 
+			this.maskedTextBoxPreco.Enabled = false;
+			this.maskedTextBoxPreco.Location = new System.Drawing.Point(287, 47);
+			this.maskedTextBoxPreco.Mask = "$ 99,99";
+			this.maskedTextBoxPreco.Name = "maskedTextBoxPreco";
+			this.maskedTextBoxPreco.Size = new System.Drawing.Size(85, 20);
+			this.maskedTextBoxPreco.TabIndex = 15;
+			// 
+			// btnIncluir1Sabor
+			// 
+			this.btnIncluir1Sabor.Location = new System.Drawing.Point(287, 96);
+			this.btnIncluir1Sabor.Name = "btnIncluir1Sabor";
+			this.btnIncluir1Sabor.Size = new System.Drawing.Size(96, 36);
+			this.btnIncluir1Sabor.TabIndex = 6;
+			this.btnIncluir1Sabor.Text = "+ Incluir";
+			this.btnIncluir1Sabor.UseVisualStyleBackColor = true;
+			this.btnIncluir1Sabor.Click += new System.EventHandler(this.btnIncluir1Sabor_Click);
+			// 
+			// txtQtd1Sabor
+			// 
+			this.txtQtd1Sabor.Location = new System.Drawing.Point(196, 48);
+			this.txtQtd1Sabor.Name = "txtQtd1Sabor";
+			this.txtQtd1Sabor.Size = new System.Drawing.Size(59, 20);
+			this.txtQtd1Sabor.TabIndex = 5;
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(193, 31);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(62, 13);
+			this.label16.TabIndex = 4;
+			this.label16.Text = "Quantidade";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(284, 31);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(35, 13);
+			this.label15.TabIndex = 2;
+			this.label15.Text = "Preço";
+			// 
+			// comboBoxPizza1Sabor
+			// 
+			this.comboBoxPizza1Sabor.FormattingEnabled = true;
+			this.comboBoxPizza1Sabor.Location = new System.Drawing.Point(38, 47);
+			this.comboBoxPizza1Sabor.Name = "comboBoxPizza1Sabor";
+			this.comboBoxPizza1Sabor.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxPizza1Sabor.TabIndex = 1;
+			this.comboBoxPizza1Sabor.SelectedIndexChanged += new System.EventHandler(this.comboBoxPizza1Sabor_SelectedIndexChanged);
 			// 
 			// label14
 			// 
@@ -212,121 +284,41 @@
 			this.label14.TabIndex = 0;
 			this.label14.Text = "Sabor Pizza";
 			// 
-			// comboBox4
-			// 
-			this.comboBox4.FormattingEnabled = true;
-			this.comboBox4.Location = new System.Drawing.Point(38, 47);
-			this.comboBox4.Name = "comboBox4";
-			this.comboBox4.Size = new System.Drawing.Size(121, 21);
-			this.comboBox4.TabIndex = 1;
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(194, 31);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(35, 13);
-			this.label15.TabIndex = 2;
-			this.label15.Text = "Preço";
-			// 
-			// textBox5
-			// 
-			this.textBox5.Location = new System.Drawing.Point(197, 48);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(65, 20);
-			this.textBox5.TabIndex = 3;
-			// 
-			// textBox6
-			// 
-			this.textBox6.Location = new System.Drawing.Point(283, 48);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(59, 20);
-			this.textBox6.TabIndex = 5;
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(280, 31);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(62, 13);
-			this.label16.TabIndex = 4;
-			this.label16.Text = "Quantidade";
-			// 
-			// button3
-			// 
-			this.button3.Location = new System.Drawing.Point(390, 38);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(96, 36);
-			this.button3.TabIndex = 6;
-			this.button3.Text = "+ Incluir";
-			this.button3.UseVisualStyleBackColor = true;
-			// 
 			// groupBox6
 			// 
-			this.groupBox6.Controls.Add(this.textBox7);
+			this.groupBox6.Controls.Add(this.maskedTextBoxPrecoMeio2);
+			this.groupBox6.Controls.Add(this.maskedTextBoxPrecoMeio1);
 			this.groupBox6.Controls.Add(this.label17);
-			this.groupBox6.Controls.Add(this.comboBox6);
+			this.groupBox6.Controls.Add(this.comboBoxMeio2);
 			this.groupBox6.Controls.Add(this.label20);
-			this.groupBox6.Controls.Add(this.button4);
-			this.groupBox6.Controls.Add(this.textBox8);
+			this.groupBox6.Controls.Add(this.btnIncluirMeio);
 			this.groupBox6.Controls.Add(this.label18);
-			this.groupBox6.Controls.Add(this.comboBox5);
+			this.groupBox6.Controls.Add(this.comboBoxMeio1);
 			this.groupBox6.Controls.Add(this.label19);
-			this.groupBox6.Location = new System.Drawing.Point(24, 384);
+			this.groupBox6.Location = new System.Drawing.Point(23, 305);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(577, 160);
+			this.groupBox6.Size = new System.Drawing.Size(455, 160);
 			this.groupBox6.TabIndex = 50;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Pizza 1/2  a 1/2";
 			// 
-			// button4
+			// maskedTextBoxPrecoMeio2
 			// 
-			this.button4.Location = new System.Drawing.Point(390, 73);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(96, 36);
-			this.button4.TabIndex = 6;
-			this.button4.Text = "+ Incluir";
-			this.button4.UseVisualStyleBackColor = true;
+			this.maskedTextBoxPrecoMeio2.Enabled = false;
+			this.maskedTextBoxPrecoMeio2.Location = new System.Drawing.Point(195, 113);
+			this.maskedTextBoxPrecoMeio2.Mask = "$ 99,99";
+			this.maskedTextBoxPrecoMeio2.Name = "maskedTextBoxPrecoMeio2";
+			this.maskedTextBoxPrecoMeio2.Size = new System.Drawing.Size(85, 20);
+			this.maskedTextBoxPrecoMeio2.TabIndex = 17;
 			// 
-			// textBox8
+			// maskedTextBoxPrecoMeio1
 			// 
-			this.textBox8.Location = new System.Drawing.Point(197, 48);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(65, 20);
-			this.textBox8.TabIndex = 3;
-			// 
-			// label18
-			// 
-			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(194, 31);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(35, 13);
-			this.label18.TabIndex = 2;
-			this.label18.Text = "Preço";
-			// 
-			// comboBox5
-			// 
-			this.comboBox5.FormattingEnabled = true;
-			this.comboBox5.Location = new System.Drawing.Point(38, 47);
-			this.comboBox5.Name = "comboBox5";
-			this.comboBox5.Size = new System.Drawing.Size(121, 21);
-			this.comboBox5.TabIndex = 1;
-			// 
-			// label19
-			// 
-			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(35, 31);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(63, 13);
-			this.label19.TabIndex = 0;
-			this.label19.Text = "Sabor Pizza";
-			// 
-			// textBox7
-			// 
-			this.textBox7.Location = new System.Drawing.Point(197, 113);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(65, 20);
-			this.textBox7.TabIndex = 10;
+			this.maskedTextBoxPrecoMeio1.Enabled = false;
+			this.maskedTextBoxPrecoMeio1.Location = new System.Drawing.Point(195, 48);
+			this.maskedTextBoxPrecoMeio1.Mask = "$ 99,99";
+			this.maskedTextBoxPrecoMeio1.Name = "maskedTextBoxPrecoMeio1";
+			this.maskedTextBoxPrecoMeio1.Size = new System.Drawing.Size(85, 20);
+			this.maskedTextBoxPrecoMeio1.TabIndex = 16;
 			// 
 			// label17
 			// 
@@ -337,13 +329,14 @@
 			this.label17.TabIndex = 9;
 			this.label17.Text = "Preço";
 			// 
-			// comboBox6
+			// comboBoxMeio2
 			// 
-			this.comboBox6.FormattingEnabled = true;
-			this.comboBox6.Location = new System.Drawing.Point(38, 112);
-			this.comboBox6.Name = "comboBox6";
-			this.comboBox6.Size = new System.Drawing.Size(121, 21);
-			this.comboBox6.TabIndex = 8;
+			this.comboBoxMeio2.FormattingEnabled = true;
+			this.comboBoxMeio2.Location = new System.Drawing.Point(38, 112);
+			this.comboBoxMeio2.Name = "comboBoxMeio2";
+			this.comboBoxMeio2.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxMeio2.TabIndex = 8;
+			this.comboBoxMeio2.SelectedIndexChanged += new System.EventHandler(this.comboBoxMeio2_SelectedIndexChanged);
 			// 
 			// label20
 			// 
@@ -354,20 +347,124 @@
 			this.label20.TabIndex = 7;
 			this.label20.Text = "Sabor Pizza";
 			// 
+			// btnIncluirMeio
+			// 
+			this.btnIncluirMeio.Location = new System.Drawing.Point(321, 73);
+			this.btnIncluirMeio.Name = "btnIncluirMeio";
+			this.btnIncluirMeio.Size = new System.Drawing.Size(96, 36);
+			this.btnIncluirMeio.TabIndex = 6;
+			this.btnIncluirMeio.Text = "+ Incluir";
+			this.btnIncluirMeio.UseVisualStyleBackColor = true;
+			this.btnIncluirMeio.Click += new System.EventHandler(this.btnIncluirMeio_Click);
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(194, 31);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(35, 13);
+			this.label18.TabIndex = 2;
+			this.label18.Text = "Preço";
+			// 
+			// comboBoxMeio1
+			// 
+			this.comboBoxMeio1.FormattingEnabled = true;
+			this.comboBoxMeio1.Location = new System.Drawing.Point(38, 47);
+			this.comboBoxMeio1.Name = "comboBoxMeio1";
+			this.comboBoxMeio1.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxMeio1.TabIndex = 1;
+			this.comboBoxMeio1.SelectedIndexChanged += new System.EventHandler(this.comboBoxMeio1_SelectedIndexChanged);
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(35, 31);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(63, 13);
+			this.label19.TabIndex = 0;
+			this.label19.Text = "Sabor Pizza";
+			// 
+			// labelMotoboy
+			// 
+			this.labelMotoboy.AutoSize = true;
+			this.labelMotoboy.Location = new System.Drawing.Point(576, 45);
+			this.labelMotoboy.Name = "labelMotoboy";
+			this.labelMotoboy.Size = new System.Drawing.Size(169, 13);
+			this.labelMotoboy.TabIndex = 51;
+			this.labelMotoboy.Text = "Qual motoboy irá fazer a entrega ?";
+			// 
+			// comboBoxMotoboy
+			// 
+			this.comboBoxMotoboy.FormattingEnabled = true;
+			this.comboBoxMotoboy.Location = new System.Drawing.Point(758, 42);
+			this.comboBoxMotoboy.Name = "comboBoxMotoboy";
+			this.comboBoxMotoboy.Size = new System.Drawing.Size(201, 21);
+			this.comboBoxMotoboy.TabIndex = 52;
+			// 
+			// radioButton1
+			// 
+			this.radioButton1.AutoSize = true;
+			this.radioButton1.Location = new System.Drawing.Point(13, 19);
+			this.radioButton1.Name = "radioButton1";
+			this.radioButton1.Size = new System.Drawing.Size(62, 17);
+			this.radioButton1.TabIndex = 53;
+			this.radioButton1.TabStop = true;
+			this.radioButton1.Text = "Entrega";
+			this.radioButton1.UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this.radioButton2.AutoSize = true;
+			this.radioButton2.Location = new System.Drawing.Point(143, 19);
+			this.radioButton2.Name = "radioButton2";
+			this.radioButton2.Size = new System.Drawing.Size(58, 17);
+			this.radioButton2.TabIndex = 54;
+			this.radioButton2.TabStop = true;
+			this.radioButton2.Text = "Balcão";
+			this.radioButton2.UseVisualStyleBackColor = true;
+			// 
+			// groupBox7
+			// 
+			this.groupBox7.Controls.Add(this.radioButton1);
+			this.groupBox7.Controls.Add(this.radioButton2);
+			this.groupBox7.Location = new System.Drawing.Point(23, 22);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(522, 54);
+			this.groupBox7.TabIndex = 55;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Escolha a forma de venda";
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(23, 496);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.Size = new System.Drawing.Size(844, 174);
+			this.dataGridView1.TabIndex = 56;
+			// 
 			// FrmNovoPedido
 			// 
-			this.ClientSize = new System.Drawing.Size(829, 607);
+			this.ClientSize = new System.Drawing.Size(1123, 682);
+			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.groupBox7);
+			this.Controls.Add(this.comboBoxMotoboy);
+			this.Controls.Add(this.labelMotoboy);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.groupBox5);
 			this.Controls.Add(this.groupBox4);
 			this.Name = "FrmNovoPedido";
+			this.Load += new System.EventHandler(this.FrmNovoPedido_Load);
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox6.PerformLayout();
+			this.groupBox7.ResumeLayout(false);
+			this.groupBox7.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -406,22 +503,29 @@
 		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.TextBox txtEndereco;
 		private System.Windows.Forms.GroupBox groupBox5;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.TextBox textBox6;
+		private System.Windows.Forms.Button btnIncluir1Sabor;
+		private System.Windows.Forms.TextBox txtQtd1Sabor;
 		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.ComboBox comboBox4;
+		private System.Windows.Forms.ComboBox comboBoxPizza1Sabor;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.GroupBox groupBox6;
-		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.ComboBox comboBox6;
+		private System.Windows.Forms.ComboBox comboBoxMeio2;
 		private System.Windows.Forms.Label label20;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.Button btnIncluirMeio;
 		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.ComboBox comboBox5;
+		private System.Windows.Forms.ComboBox comboBoxMeio1;
 		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.Label labelMotoboy;
+		private System.Windows.Forms.ComboBox comboBoxMotoboy;
+		private System.Windows.Forms.RadioButton radioButton1;
+		private System.Windows.Forms.RadioButton radioButton2;
+		private System.Windows.Forms.GroupBox groupBox7;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.MaskedTextBox maskedTextBoxPreco;
+		private System.Windows.Forms.MaskedTextBox maskedTextBoxPrecoMeio2;
+		private System.Windows.Forms.MaskedTextBox maskedTextBoxPrecoMeio1;
 	}
 }
