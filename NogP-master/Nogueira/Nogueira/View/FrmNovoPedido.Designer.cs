@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.groupBoxCliente = new System.Windows.Forms.GroupBox();
 			this.label22 = new System.Windows.Forms.Label();
 			this.btnBuscarTel = new System.Windows.Forms.Button();
 			this.txtPonto_Referencia = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.txtNome = new System.Windows.Forms.TextBox();
 			this.txtEndereco = new System.Windows.Forms.TextBox();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.groupBoxPizza1Sabor = new System.Windows.Forms.GroupBox();
 			this.maskedTextBoxPreco = new System.Windows.Forms.MaskedTextBox();
 			this.btnIncluir1Sabor = new System.Windows.Forms.Button();
 			this.txtQtd1Sabor = new System.Windows.Forms.TextBox();
@@ -50,7 +50,7 @@
 			this.label15 = new System.Windows.Forms.Label();
 			this.comboBoxPizza1Sabor = new System.Windows.Forms.ComboBox();
 			this.label14 = new System.Windows.Forms.Label();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.groupBoxPizzaMeio = new System.Windows.Forms.GroupBox();
 			this.maskedTextBoxPrecoMeio2 = new System.Windows.Forms.MaskedTextBox();
 			this.maskedTextBoxPrecoMeio1 = new System.Windows.Forms.MaskedTextBox();
 			this.label17 = new System.Windows.Forms.Label();
@@ -62,38 +62,43 @@
 			this.label19 = new System.Windows.Forms.Label();
 			this.labelMotoboy = new System.Windows.Forms.Label();
 			this.comboBoxMotoboy = new System.Windows.Forms.ComboBox();
-			this.radioButton1 = new System.Windows.Forms.RadioButton();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
+			this.radioButtonEntrega = new System.Windows.Forms.RadioButton();
+			this.radioButtonBalcao = new System.Windows.Forms.RadioButton();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.groupBox4.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			this.groupBox6.SuspendLayout();
+			this.btnRemove = new System.Windows.Forms.Button();
+			this.label21 = new System.Windows.Forms.Label();
+			this.labelRS = new System.Windows.Forms.Label();
+			this.labelTotal = new System.Windows.Forms.Label();
+			this.groupBoxCliente.SuspendLayout();
+			this.groupBoxPizza1Sabor.SuspendLayout();
+			this.groupBoxPizzaMeio.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// groupBox4
+			// groupBoxCliente
 			// 
-			this.groupBox4.Controls.Add(this.label22);
-			this.groupBox4.Controls.Add(this.btnBuscarTel);
-			this.groupBox4.Controls.Add(this.txtPonto_Referencia);
-			this.groupBox4.Controls.Add(this.label6);
-			this.groupBox4.Controls.Add(this.txtComplemento);
-			this.groupBox4.Controls.Add(this.txtTelefone);
-			this.groupBox4.Controls.Add(this.label5);
-			this.groupBox4.Controls.Add(this.label1);
-			this.groupBox4.Controls.Add(this.txtNumero);
-			this.groupBox4.Controls.Add(this.label2);
-			this.groupBox4.Controls.Add(this.label4);
-			this.groupBox4.Controls.Add(this.txtNome);
-			this.groupBox4.Controls.Add(this.txtEndereco);
-			this.groupBox4.Location = new System.Drawing.Point(23, 102);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(522, 176);
-			this.groupBox4.TabIndex = 48;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Dados Cliente";
+			this.groupBoxCliente.Controls.Add(this.label22);
+			this.groupBoxCliente.Controls.Add(this.btnBuscarTel);
+			this.groupBoxCliente.Controls.Add(this.txtPonto_Referencia);
+			this.groupBoxCliente.Controls.Add(this.label6);
+			this.groupBoxCliente.Controls.Add(this.txtComplemento);
+			this.groupBoxCliente.Controls.Add(this.txtTelefone);
+			this.groupBoxCliente.Controls.Add(this.label5);
+			this.groupBoxCliente.Controls.Add(this.label1);
+			this.groupBoxCliente.Controls.Add(this.txtNumero);
+			this.groupBoxCliente.Controls.Add(this.label2);
+			this.groupBoxCliente.Controls.Add(this.label4);
+			this.groupBoxCliente.Controls.Add(this.txtNome);
+			this.groupBoxCliente.Controls.Add(this.txtEndereco);
+			this.groupBoxCliente.Location = new System.Drawing.Point(23, 102);
+			this.groupBoxCliente.Name = "groupBoxCliente";
+			this.groupBoxCliente.Size = new System.Drawing.Size(522, 176);
+			this.groupBoxCliente.TabIndex = 48;
+			this.groupBoxCliente.TabStop = false;
+			this.groupBoxCliente.Text = "Dados Cliente";
+			this.groupBoxCliente.Visible = false;
 			// 
 			// label22
 			// 
@@ -206,21 +211,22 @@
 			this.txtEndereco.Size = new System.Drawing.Size(270, 20);
 			this.txtEndereco.TabIndex = 52;
 			// 
-			// groupBox5
+			// groupBoxPizza1Sabor
 			// 
-			this.groupBox5.Controls.Add(this.maskedTextBoxPreco);
-			this.groupBox5.Controls.Add(this.btnIncluir1Sabor);
-			this.groupBox5.Controls.Add(this.txtQtd1Sabor);
-			this.groupBox5.Controls.Add(this.label16);
-			this.groupBox5.Controls.Add(this.label15);
-			this.groupBox5.Controls.Add(this.comboBoxPizza1Sabor);
-			this.groupBox5.Controls.Add(this.label14);
-			this.groupBox5.Location = new System.Drawing.Point(515, 305);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(444, 160);
-			this.groupBox5.TabIndex = 49;
-			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Pizza de 1 Sabor";
+			this.groupBoxPizza1Sabor.Controls.Add(this.maskedTextBoxPreco);
+			this.groupBoxPizza1Sabor.Controls.Add(this.btnIncluir1Sabor);
+			this.groupBoxPizza1Sabor.Controls.Add(this.txtQtd1Sabor);
+			this.groupBoxPizza1Sabor.Controls.Add(this.label16);
+			this.groupBoxPizza1Sabor.Controls.Add(this.label15);
+			this.groupBoxPizza1Sabor.Controls.Add(this.comboBoxPizza1Sabor);
+			this.groupBoxPizza1Sabor.Controls.Add(this.label14);
+			this.groupBoxPizza1Sabor.Location = new System.Drawing.Point(515, 305);
+			this.groupBoxPizza1Sabor.Name = "groupBoxPizza1Sabor";
+			this.groupBoxPizza1Sabor.Size = new System.Drawing.Size(444, 160);
+			this.groupBoxPizza1Sabor.TabIndex = 49;
+			this.groupBoxPizza1Sabor.TabStop = false;
+			this.groupBoxPizza1Sabor.Text = "Pizza de 1 Sabor";
+			this.groupBoxPizza1Sabor.Visible = false;
 			// 
 			// maskedTextBoxPreco
 			// 
@@ -243,10 +249,12 @@
 			// 
 			// txtQtd1Sabor
 			// 
+			this.txtQtd1Sabor.Enabled = false;
 			this.txtQtd1Sabor.Location = new System.Drawing.Point(196, 48);
 			this.txtQtd1Sabor.Name = "txtQtd1Sabor";
 			this.txtQtd1Sabor.Size = new System.Drawing.Size(59, 20);
 			this.txtQtd1Sabor.TabIndex = 5;
+			this.txtQtd1Sabor.Text = "1";
 			// 
 			// label16
 			// 
@@ -284,23 +292,24 @@
 			this.label14.TabIndex = 0;
 			this.label14.Text = "Sabor Pizza";
 			// 
-			// groupBox6
+			// groupBoxPizzaMeio
 			// 
-			this.groupBox6.Controls.Add(this.maskedTextBoxPrecoMeio2);
-			this.groupBox6.Controls.Add(this.maskedTextBoxPrecoMeio1);
-			this.groupBox6.Controls.Add(this.label17);
-			this.groupBox6.Controls.Add(this.comboBoxMeio2);
-			this.groupBox6.Controls.Add(this.label20);
-			this.groupBox6.Controls.Add(this.btnIncluirMeio);
-			this.groupBox6.Controls.Add(this.label18);
-			this.groupBox6.Controls.Add(this.comboBoxMeio1);
-			this.groupBox6.Controls.Add(this.label19);
-			this.groupBox6.Location = new System.Drawing.Point(23, 305);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(455, 160);
-			this.groupBox6.TabIndex = 50;
-			this.groupBox6.TabStop = false;
-			this.groupBox6.Text = "Pizza 1/2  a 1/2";
+			this.groupBoxPizzaMeio.Controls.Add(this.maskedTextBoxPrecoMeio2);
+			this.groupBoxPizzaMeio.Controls.Add(this.maskedTextBoxPrecoMeio1);
+			this.groupBoxPizzaMeio.Controls.Add(this.label17);
+			this.groupBoxPizzaMeio.Controls.Add(this.comboBoxMeio2);
+			this.groupBoxPizzaMeio.Controls.Add(this.label20);
+			this.groupBoxPizzaMeio.Controls.Add(this.btnIncluirMeio);
+			this.groupBoxPizzaMeio.Controls.Add(this.label18);
+			this.groupBoxPizzaMeio.Controls.Add(this.comboBoxMeio1);
+			this.groupBoxPizzaMeio.Controls.Add(this.label19);
+			this.groupBoxPizzaMeio.Location = new System.Drawing.Point(23, 305);
+			this.groupBoxPizzaMeio.Name = "groupBoxPizzaMeio";
+			this.groupBoxPizzaMeio.Size = new System.Drawing.Size(455, 160);
+			this.groupBoxPizzaMeio.TabIndex = 50;
+			this.groupBoxPizzaMeio.TabStop = false;
+			this.groupBoxPizzaMeio.Text = "Pizza 1/2  a 1/2";
+			this.groupBoxPizzaMeio.Visible = false;
 			// 
 			// maskedTextBoxPrecoMeio2
 			// 
@@ -392,6 +401,7 @@
 			this.labelMotoboy.Size = new System.Drawing.Size(169, 13);
 			this.labelMotoboy.TabIndex = 51;
 			this.labelMotoboy.Text = "Qual motoboy irá fazer a entrega ?";
+			this.labelMotoboy.Visible = false;
 			// 
 			// comboBoxMotoboy
 			// 
@@ -400,33 +410,36 @@
 			this.comboBoxMotoboy.Name = "comboBoxMotoboy";
 			this.comboBoxMotoboy.Size = new System.Drawing.Size(201, 21);
 			this.comboBoxMotoboy.TabIndex = 52;
+			this.comboBoxMotoboy.Visible = false;
 			// 
-			// radioButton1
+			// radioButtonEntrega
 			// 
-			this.radioButton1.AutoSize = true;
-			this.radioButton1.Location = new System.Drawing.Point(13, 19);
-			this.radioButton1.Name = "radioButton1";
-			this.radioButton1.Size = new System.Drawing.Size(62, 17);
-			this.radioButton1.TabIndex = 53;
-			this.radioButton1.TabStop = true;
-			this.radioButton1.Text = "Entrega";
-			this.radioButton1.UseVisualStyleBackColor = true;
+			this.radioButtonEntrega.AutoSize = true;
+			this.radioButtonEntrega.Location = new System.Drawing.Point(13, 19);
+			this.radioButtonEntrega.Name = "radioButtonEntrega";
+			this.radioButtonEntrega.Size = new System.Drawing.Size(62, 17);
+			this.radioButtonEntrega.TabIndex = 53;
+			this.radioButtonEntrega.TabStop = true;
+			this.radioButtonEntrega.Text = "Entrega";
+			this.radioButtonEntrega.UseVisualStyleBackColor = true;
+			this.radioButtonEntrega.CheckedChanged += new System.EventHandler(this.radioButtonEntrega_CheckedChanged);
 			// 
-			// radioButton2
+			// radioButtonBalcao
 			// 
-			this.radioButton2.AutoSize = true;
-			this.radioButton2.Location = new System.Drawing.Point(143, 19);
-			this.radioButton2.Name = "radioButton2";
-			this.radioButton2.Size = new System.Drawing.Size(58, 17);
-			this.radioButton2.TabIndex = 54;
-			this.radioButton2.TabStop = true;
-			this.radioButton2.Text = "Balcão";
-			this.radioButton2.UseVisualStyleBackColor = true;
+			this.radioButtonBalcao.AutoSize = true;
+			this.radioButtonBalcao.Location = new System.Drawing.Point(143, 19);
+			this.radioButtonBalcao.Name = "radioButtonBalcao";
+			this.radioButtonBalcao.Size = new System.Drawing.Size(58, 17);
+			this.radioButtonBalcao.TabIndex = 54;
+			this.radioButtonBalcao.TabStop = true;
+			this.radioButtonBalcao.Text = "Balcão";
+			this.radioButtonBalcao.UseVisualStyleBackColor = true;
+			this.radioButtonBalcao.CheckedChanged += new System.EventHandler(this.radioButtonBalcao_CheckedChanged);
 			// 
 			// groupBox7
 			// 
-			this.groupBox7.Controls.Add(this.radioButton1);
-			this.groupBox7.Controls.Add(this.radioButton2);
+			this.groupBox7.Controls.Add(this.radioButtonEntrega);
+			this.groupBox7.Controls.Add(this.radioButtonBalcao);
 			this.groupBox7.Location = new System.Drawing.Point(23, 22);
 			this.groupBox7.Name = "groupBox7";
 			this.groupBox7.Size = new System.Drawing.Size(522, 54);
@@ -439,27 +452,68 @@
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(23, 496);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(844, 174);
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.Size = new System.Drawing.Size(651, 174);
 			this.dataGridView1.TabIndex = 56;
+			// 
+			// btnRemove
+			// 
+			this.btnRemove.Location = new System.Drawing.Point(697, 506);
+			this.btnRemove.Name = "btnRemove";
+			this.btnRemove.Size = new System.Drawing.Size(100, 39);
+			this.btnRemove.TabIndex = 57;
+			this.btnRemove.Text = "Remover Linha";
+			this.btnRemove.UseVisualStyleBackColor = true;
+			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+			// 
+			// label21
+			// 
+			this.label21.AutoSize = true;
+			this.label21.Location = new System.Drawing.Point(704, 588);
+			this.label21.Name = "label21";
+			this.label21.Size = new System.Drawing.Size(31, 13);
+			this.label21.TabIndex = 58;
+			this.label21.Text = "Total";
+			// 
+			// labelRS
+			// 
+			this.labelRS.AutoSize = true;
+			this.labelRS.Location = new System.Drawing.Point(742, 587);
+			this.labelRS.Name = "labelRS";
+			this.labelRS.Size = new System.Drawing.Size(21, 13);
+			this.labelRS.TabIndex = 59;
+			this.labelRS.Text = "R$";
+			// 
+			// labelTotal
+			// 
+			this.labelTotal.AutoSize = true;
+			this.labelTotal.Location = new System.Drawing.Point(770, 587);
+			this.labelTotal.Name = "labelTotal";
+			this.labelTotal.Size = new System.Drawing.Size(0, 13);
+			this.labelTotal.TabIndex = 60;
 			// 
 			// FrmNovoPedido
 			// 
 			this.ClientSize = new System.Drawing.Size(1123, 682);
+			this.Controls.Add(this.labelTotal);
+			this.Controls.Add(this.labelRS);
+			this.Controls.Add(this.label21);
+			this.Controls.Add(this.btnRemove);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.groupBox7);
 			this.Controls.Add(this.comboBoxMotoboy);
 			this.Controls.Add(this.labelMotoboy);
-			this.Controls.Add(this.groupBox6);
-			this.Controls.Add(this.groupBox5);
-			this.Controls.Add(this.groupBox4);
+			this.Controls.Add(this.groupBoxPizzaMeio);
+			this.Controls.Add(this.groupBoxPizza1Sabor);
+			this.Controls.Add(this.groupBoxCliente);
 			this.Name = "FrmNovoPedido";
 			this.Load += new System.EventHandler(this.FrmNovoPedido_Load);
-			this.groupBox4.ResumeLayout(false);
-			this.groupBox4.PerformLayout();
-			this.groupBox5.ResumeLayout(false);
-			this.groupBox5.PerformLayout();
-			this.groupBox6.ResumeLayout(false);
-			this.groupBox6.PerformLayout();
+			this.groupBoxCliente.ResumeLayout(false);
+			this.groupBoxCliente.PerformLayout();
+			this.groupBoxPizza1Sabor.ResumeLayout(false);
+			this.groupBoxPizza1Sabor.PerformLayout();
+			this.groupBoxPizzaMeio.ResumeLayout(false);
+			this.groupBoxPizzaMeio.PerformLayout();
 			this.groupBox7.ResumeLayout(false);
 			this.groupBox7.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -489,7 +543,7 @@
 		private System.Windows.Forms.ComboBox comboBox2;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.GroupBox groupBoxCliente;
 		private System.Windows.Forms.Button btnBuscarTel;
 		private System.Windows.Forms.TextBox txtPonto_Referencia;
 		private System.Windows.Forms.Label label6;
@@ -502,14 +556,14 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.TextBox txtEndereco;
-		private System.Windows.Forms.GroupBox groupBox5;
+		private System.Windows.Forms.GroupBox groupBoxPizza1Sabor;
 		private System.Windows.Forms.Button btnIncluir1Sabor;
 		private System.Windows.Forms.TextBox txtQtd1Sabor;
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.ComboBox comboBoxPizza1Sabor;
 		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.GroupBox groupBox6;
+		private System.Windows.Forms.GroupBox groupBoxPizzaMeio;
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.ComboBox comboBoxMeio2;
 		private System.Windows.Forms.Label label20;
@@ -519,13 +573,17 @@
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Label labelMotoboy;
 		private System.Windows.Forms.ComboBox comboBoxMotoboy;
-		private System.Windows.Forms.RadioButton radioButton1;
-		private System.Windows.Forms.RadioButton radioButton2;
+		private System.Windows.Forms.RadioButton radioButtonEntrega;
+		private System.Windows.Forms.RadioButton radioButtonBalcao;
 		private System.Windows.Forms.GroupBox groupBox7;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.MaskedTextBox maskedTextBoxPreco;
 		private System.Windows.Forms.MaskedTextBox maskedTextBoxPrecoMeio2;
 		private System.Windows.Forms.MaskedTextBox maskedTextBoxPrecoMeio1;
+		private System.Windows.Forms.Button btnRemove;
+		private System.Windows.Forms.Label label21;
+		private System.Windows.Forms.Label labelRS;
+		private System.Windows.Forms.Label labelTotal;
 	}
 }

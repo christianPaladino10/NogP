@@ -49,5 +49,35 @@ namespace Nogueira.NogueiraDAO
 				if (conn != null) conn.Dispose();
 			}
 		}
+
+		internal DataTable BuscarTodosMotoboy()
+		{
+			ConectarAccess();
+
+			DataTable dt = new DataTable();
+			string comando = "SELECT * FROM Motoboy";
+
+			OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+			try
+			{
+				dt.Load(cmd.ExecuteReader());
+
+				var rw = dt.NewRow();
+				rw[1] = "";
+				dt.Rows.InsertAt(rw, 0);
+				return dt;
+			}
+			catch (Exception E)
+			{
+				MessageBox.Show(E.Message);
+				return null;
+			}
+			finally
+			{
+				if (conn.State == ConnectionState.Open) conn.Close();
+				if (conn != null) conn.Dispose();
+			}
+		}
 	}
 }

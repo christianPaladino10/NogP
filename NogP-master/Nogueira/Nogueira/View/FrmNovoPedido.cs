@@ -12,18 +12,24 @@ using System.Windows.Forms;
 
 namespace Nogueira
 {
-    public partial class FrmNovoPedido : Form
-    {
-        public FrmNovoPedido()
-        {
-            InitializeComponent();
-        }
+	public partial class FrmNovoPedido : Form
+	{
+		public FrmNovoPedido()
+		{
+			InitializeComponent();
+		}
 		DataTable table = new DataTable();
 
 
 		private void FrmNovoPedido_Load(object sender, EventArgs e)
 		{
 			PizzaBusiness pizzaBusiness = new PizzaBusiness();
+			MotoboyBusiness motoboyBusiness = new MotoboyBusiness();
+
+			comboBoxMotoboy.DataSource = motoboyBusiness.BuscarTodosMotoboy();
+			comboBoxMotoboy.DropDownStyle = ComboBoxStyle.DropDownList;
+			comboBoxMotoboy.ValueMember = "Id_Motoboy";
+			comboBoxMotoboy.DisplayMember = "nome_Motoboy";
 
 			comboBoxPizza1Sabor.DataSource = pizzaBusiness.BuscarTodasPizzas();
 			comboBoxPizza1Sabor.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -45,31 +51,30 @@ namespace Nogueira
 			table.Columns.Add("Qtde", typeof(int));
 			table.Columns.Add("Descrição", typeof(string));
 			table.Columns.Add("Vl. Unitário", typeof(string));
-			table.Columns.Add("Total", typeof(string));
 
 		}
 
 		private void btnBuscarTel_Click(object sender, EventArgs e)
-        {
-            if (txtTelefone.Text == string.Empty)
-            {
-                MessageBox.Show("Digite um número de telefone");
-            }
-            else
-            {
-                string telefone = txtTelefone.Text.Replace("-", "");
-                ClienteDTO dadosCliente = new ClienteDTO();
-                ClienteBusiness clienteBusiness = new ClienteBusiness();
+		{
+			if (txtTelefone.Text == string.Empty)
+			{
+				MessageBox.Show("Digite um número de telefone");
+			}
+			else
+			{
+				string telefone = txtTelefone.Text.Replace("-", "");
+				ClienteDTO dadosCliente = new ClienteDTO();
+				ClienteBusiness clienteBusiness = new ClienteBusiness();
 
-                clienteBusiness.BuscarPorTelefone(telefone, dadosCliente);
+				clienteBusiness.BuscarPorTelefone(telefone, dadosCliente);
 
-                txtNome.Text = dadosCliente.Nome;
-                txtEndereco.Text = dadosCliente.Endereco;
-                txtNumero.Text = dadosCliente.Numero;
-                txtPonto_Referencia.Text = dadosCliente.PontoReferencia;
-                txtComplemento.Text = dadosCliente.Complemento;
-            }      
-        }
+				txtNome.Text = dadosCliente.Nome;
+				txtEndereco.Text = dadosCliente.Endereco;
+				txtNumero.Text = dadosCliente.Numero;
+				txtPonto_Referencia.Text = dadosCliente.PontoReferencia;
+				txtComplemento.Text = dadosCliente.Complemento;
+			}
+		}
 
 		private void comboBoxPizza1Sabor_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -80,8 +85,8 @@ namespace Nogueira
 				double preco = pizzaBusiness.AlterarTextBoxConformeCombo(pizzaSelecionada);
 				string precoText = preco.ToString();
 
-				maskedTextBoxPreco.Text = precoText;				
-			}			
+				maskedTextBoxPreco.Text = precoText;
+			}
 		}
 
 		private void comboBoxMeio1_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,8 +117,13 @@ namespace Nogueira
 
 		private void btnIncluir1Sabor_Click(object sender, EventArgs e)
 		{
-			table.Rows.Add(txtQtd1Sabor.Text, comboBoxPizza1Sabor.Text, maskedTextBoxPreco.Text, null);
+			PizzaBusiness pizzaBusiness = new PizzaBusiness();
+
+			table.Rows.Add(txtQtd1Sabor.Text, comboBoxPizza1Sabor.Text, maskedTextBoxPreco.Text);
 			dataGridView1.DataSource = table;
+			SetDataGridView(dataGridView1);
+
+			labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
 		}
 
 		private void btnIncluirMeio_Click(object sender, EventArgs e)
@@ -122,18 +132,51 @@ namespace Nogueira
 			string preco1 = maskedTextBoxPrecoMeio1.Text;
 			string preco2 = maskedTextBoxPrecoMeio2.Text;
 			string preco = pizzaBusiness.DescobrirMaiorValor(preco1, preco2);
+			preco = "R$ " + preco;
 
-			table.Rows.Add(1, "Meio " + comboBoxMeio1.Text + " & Meio " + comboBoxMeio2.Text, preco, null);
+			table.Rows.Add(1, "Meio " + comboBoxMeio1.Text + " & Meio " + comboBoxMeio2.Text, preco);
 			dataGridView1.DataSource = table;
-			SetDataGridView(dataGridView1);		
+			SetDataGridView(dataGridView1);
+
+			labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
 		}
 
 		private void SetDataGridView(DataGridView dataGridView1)
 		{
-			dataGridView1.Columns[0].Width = 100;
-			dataGridView1.Columns[1].Width = 460;
-			dataGridView1.Columns[2].Width = 120;
-			dataGridView1.Columns[3].Width = 120;
+			dataGridView1.Columns[0].Width = 80;
+			dataGridView1.Columns[1].Width = 403;
+			dataGridView1.Columns[2].Width = 125;
 		}
+
+		private void btnRemove_Click(object sender, EventArgs e)
+		{
+			PizzaBusiness pizzaBusiness = new PizzaBusiness();
+
+			foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+			{
+				dataGridView1.Rows.RemoveAt(row.Index);
+			}
+
+			labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+		}
+
+		private void radioButtonEntrega_CheckedChanged(object sender, EventArgs e)
+		{
+			labelMotoboy.Visible = true;
+			comboBoxMotoboy.Visible = true;
+			groupBoxCliente.Visible = true;
+			groupBoxPizza1Sabor.Visible = true;
+			groupBoxPizzaMeio.Visible = true;
+		}
+
+		private void radioButtonBalcao_CheckedChanged(object sender, EventArgs e)
+		{
+			labelMotoboy.Visible = false;
+			comboBoxMotoboy.Visible = false;
+			groupBoxCliente.Visible = true;
+			groupBoxPizza1Sabor.Visible = true;
+			groupBoxPizzaMeio.Visible = true;
+		}
+
 	}
 }

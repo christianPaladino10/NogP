@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
+using System.Windows.Forms;
 
 namespace Nogueira.NogueiraBusiness
 {
@@ -69,6 +70,26 @@ namespace Nogueira.NogueiraBusiness
 			{
 				return preco2;
 			}
+		}
+
+		internal string AutoSoma(DataGridView dataGridView1)
+		{
+			double soma = 0;
+			foreach (DataGridViewRow row in dataGridView1.Rows)
+			{
+				if (row.Cells[2].Value != null)
+				{
+					var valorComR = row.Cells[2].Value.ToString();
+					double precoAgregado = double.Parse(valorComR.Replace("R$ ", ""));
+					soma += precoAgregado;
+				}
+			}
+			string preco = Convert.ToString(soma.ToString());
+			string preco1 = preco.Substring(0, 2);
+			string preco2 = preco.Substring(2, 2);
+			preco = preco1 + "." + preco2;
+
+			return preco;
 		}
 	}
 }
