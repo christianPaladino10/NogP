@@ -25,6 +25,7 @@ namespace Nogueira
 		{
 			PizzaBusiness pizzaBusiness = new PizzaBusiness();
 			MotoboyBusiness motoboyBusiness = new MotoboyBusiness();
+			BebidaBusiness bebidaBusiness = new BebidaBusiness();
 
 			comboBoxMotoboy.DataSource = motoboyBusiness.BuscarTodosMotoboy();
 			comboBoxMotoboy.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -47,6 +48,11 @@ namespace Nogueira
 			comboBoxMeio2.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBoxMeio2.ValueMember = "Id_Pizza";
 			comboBoxMeio2.DisplayMember = "Nome_Sabor";
+
+			comboBoxBebida.DataSource = bebidaBusiness.BuscarTodasBebidas();
+			comboBoxBebida.DropDownStyle = ComboBoxStyle.DropDownList;
+			comboBoxBebida.ValueMember = "Id_Bebida";
+			comboBoxBebida.DisplayMember = "Descricao";
 
 			table.Columns.Add("Qtde", typeof(int));
 			table.Columns.Add("Descrição", typeof(string));
@@ -157,7 +163,14 @@ namespace Nogueira
 				dataGridView1.Rows.RemoveAt(row.Index);
 			}
 
-			labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+			if (dataGridView1.Rows.Count == 1)
+			{
+				labelTotal.Text = "";
+			}
+			else
+			{
+				labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+			}			
 		}
 
 		private void radioButtonEntrega_CheckedChanged(object sender, EventArgs e)
@@ -167,6 +180,7 @@ namespace Nogueira
 			groupBoxCliente.Visible = true;
 			groupBoxPizza1Sabor.Visible = true;
 			groupBoxPizzaMeio.Visible = true;
+			groupBoxBebidas.Visible = true;
 		}
 
 		private void radioButtonBalcao_CheckedChanged(object sender, EventArgs e)
@@ -176,7 +190,29 @@ namespace Nogueira
 			groupBoxCliente.Visible = true;
 			groupBoxPizza1Sabor.Visible = true;
 			groupBoxPizzaMeio.Visible = true;
+			groupBoxBebidas.Visible = true;
 		}
 
+		private void btnBuscarTel_Click_1(object sender, EventArgs e)
+		{
+			if (txtTelefone.Text == string.Empty)
+			{
+				MessageBox.Show("Digite um número de telefone");
+			}
+			else
+			{
+				string telefone = txtTelefone.Text.Replace("-", "");
+				ClienteDTO dadosCliente = new ClienteDTO();
+				ClienteBusiness clienteBusiness = new ClienteBusiness();
+
+				clienteBusiness.BuscarPorTelefone(telefone, dadosCliente);
+
+				txtNome.Text = dadosCliente.Nome;
+				txtEndereco.Text = dadosCliente.Endereco;
+				txtNumero.Text = dadosCliente.Numero;
+				txtPonto_Referencia.Text = dadosCliente.PontoReferencia;
+				txtComplemento.Text = dadosCliente.Complemento;
+			}
+		}
 	}
 }

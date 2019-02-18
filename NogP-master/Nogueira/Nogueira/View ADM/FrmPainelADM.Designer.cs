@@ -31,12 +31,13 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPainelADM));
 			this.labelNome = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnPainelMotoboy = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btnPainelPizza = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.lblNome = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panelAdm = new System.Windows.Forms.Panel();
-			this.btnPainelMotoboy = new Bunifu.Framework.UI.BunifuFlatButton();
+			this.btnBebidas = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -52,6 +53,7 @@
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+			this.panel1.Controls.Add(this.btnBebidas);
 			this.panel1.Controls.Add(this.btnPainelMotoboy);
 			this.panel1.Controls.Add(this.btnPainelPizza);
 			this.panel1.Controls.Add(this.lblNome);
@@ -62,6 +64,43 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(279, 649);
 			this.panel1.TabIndex = 2;
+			// 
+			// btnPainelMotoboy
+			// 
+			this.btnPainelMotoboy.Activecolor = System.Drawing.Color.Transparent;
+			this.btnPainelMotoboy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+			this.btnPainelMotoboy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnPainelMotoboy.BorderRadius = 0;
+			this.btnPainelMotoboy.ButtonText = "        Motoboy";
+			this.btnPainelMotoboy.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPainelMotoboy.DisabledColor = System.Drawing.Color.Gray;
+			this.btnPainelMotoboy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPainelMotoboy.Iconcolor = System.Drawing.Color.Transparent;
+			this.btnPainelMotoboy.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnPainelMotoboy.Iconimage")));
+			this.btnPainelMotoboy.Iconimage_right = null;
+			this.btnPainelMotoboy.Iconimage_right_Selected = null;
+			this.btnPainelMotoboy.Iconimage_Selected = null;
+			this.btnPainelMotoboy.IconMarginLeft = 0;
+			this.btnPainelMotoboy.IconMarginRight = 0;
+			this.btnPainelMotoboy.IconRightVisible = true;
+			this.btnPainelMotoboy.IconRightZoom = 0D;
+			this.btnPainelMotoboy.IconVisible = true;
+			this.btnPainelMotoboy.IconZoom = 90D;
+			this.btnPainelMotoboy.IsTab = true;
+			this.btnPainelMotoboy.Location = new System.Drawing.Point(-5, 379);
+			this.btnPainelMotoboy.Margin = new System.Windows.Forms.Padding(5);
+			this.btnPainelMotoboy.Name = "btnPainelMotoboy";
+			this.btnPainelMotoboy.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+			this.btnPainelMotoboy.OnHovercolor = System.Drawing.Color.Silver;
+			this.btnPainelMotoboy.OnHoverTextColor = System.Drawing.Color.White;
+			this.btnPainelMotoboy.selected = false;
+			this.btnPainelMotoboy.Size = new System.Drawing.Size(279, 65);
+			this.btnPainelMotoboy.TabIndex = 5;
+			this.btnPainelMotoboy.Text = "        Motoboy";
+			this.btnPainelMotoboy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnPainelMotoboy.Textcolor = System.Drawing.Color.Silver;
+			this.btnPainelMotoboy.TextFont = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPainelMotoboy.Click += new System.EventHandler(this.btnPainelMotoboy_Click);
 			// 
 			// btnPainelPizza
 			// 
@@ -139,42 +178,42 @@
 			this.panelAdm.Size = new System.Drawing.Size(695, 649);
 			this.panelAdm.TabIndex = 3;
 			// 
-			// btnPainelMotoboy
+			// btnBebidas
 			// 
-			this.btnPainelMotoboy.Activecolor = System.Drawing.Color.Transparent;
-			this.btnPainelMotoboy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-			this.btnPainelMotoboy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.btnPainelMotoboy.BorderRadius = 0;
-			this.btnPainelMotoboy.ButtonText = "        Motoboy";
-			this.btnPainelMotoboy.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnPainelMotoboy.DisabledColor = System.Drawing.Color.Gray;
-			this.btnPainelMotoboy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPainelMotoboy.Iconcolor = System.Drawing.Color.Transparent;
-			this.btnPainelMotoboy.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnPainelMotoboy.Iconimage")));
-			this.btnPainelMotoboy.Iconimage_right = null;
-			this.btnPainelMotoboy.Iconimage_right_Selected = null;
-			this.btnPainelMotoboy.Iconimage_Selected = null;
-			this.btnPainelMotoboy.IconMarginLeft = 0;
-			this.btnPainelMotoboy.IconMarginRight = 0;
-			this.btnPainelMotoboy.IconRightVisible = true;
-			this.btnPainelMotoboy.IconRightZoom = 0D;
-			this.btnPainelMotoboy.IconVisible = true;
-			this.btnPainelMotoboy.IconZoom = 90D;
-			this.btnPainelMotoboy.IsTab = true;
-			this.btnPainelMotoboy.Location = new System.Drawing.Point(-5, 379);
-			this.btnPainelMotoboy.Margin = new System.Windows.Forms.Padding(5);
-			this.btnPainelMotoboy.Name = "btnPainelMotoboy";
-			this.btnPainelMotoboy.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-			this.btnPainelMotoboy.OnHovercolor = System.Drawing.Color.Silver;
-			this.btnPainelMotoboy.OnHoverTextColor = System.Drawing.Color.White;
-			this.btnPainelMotoboy.selected = false;
-			this.btnPainelMotoboy.Size = new System.Drawing.Size(279, 65);
-			this.btnPainelMotoboy.TabIndex = 5;
-			this.btnPainelMotoboy.Text = "        Motoboy";
-			this.btnPainelMotoboy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnPainelMotoboy.Textcolor = System.Drawing.Color.Silver;
-			this.btnPainelMotoboy.TextFont = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPainelMotoboy.Click += new System.EventHandler(this.btnPainelMotoboy_Click);
+			this.btnBebidas.Activecolor = System.Drawing.Color.Transparent;
+			this.btnBebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+			this.btnBebidas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnBebidas.BorderRadius = 0;
+			this.btnBebidas.ButtonText = "        Bebidas";
+			this.btnBebidas.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnBebidas.DisabledColor = System.Drawing.Color.Gray;
+			this.btnBebidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBebidas.Iconcolor = System.Drawing.Color.Transparent;
+			this.btnBebidas.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnBebidas.Iconimage")));
+			this.btnBebidas.Iconimage_right = null;
+			this.btnBebidas.Iconimage_right_Selected = null;
+			this.btnBebidas.Iconimage_Selected = null;
+			this.btnBebidas.IconMarginLeft = 0;
+			this.btnBebidas.IconMarginRight = 0;
+			this.btnBebidas.IconRightVisible = true;
+			this.btnBebidas.IconRightZoom = 0D;
+			this.btnBebidas.IconVisible = true;
+			this.btnBebidas.IconZoom = 90D;
+			this.btnBebidas.IsTab = true;
+			this.btnBebidas.Location = new System.Drawing.Point(-5, 454);
+			this.btnBebidas.Margin = new System.Windows.Forms.Padding(5);
+			this.btnBebidas.Name = "btnBebidas";
+			this.btnBebidas.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+			this.btnBebidas.OnHovercolor = System.Drawing.Color.Silver;
+			this.btnBebidas.OnHoverTextColor = System.Drawing.Color.White;
+			this.btnBebidas.selected = false;
+			this.btnBebidas.Size = new System.Drawing.Size(279, 65);
+			this.btnBebidas.TabIndex = 6;
+			this.btnBebidas.Text = "        Bebidas";
+			this.btnBebidas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnBebidas.Textcolor = System.Drawing.Color.Silver;
+			this.btnBebidas.TextFont = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBebidas.Click += new System.EventHandler(this.btnBebidas_Click);
 			// 
 			// FrmPainelADM
 			// 
@@ -206,5 +245,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnPainelPizza;
         private System.Windows.Forms.Panel panelAdm;
 		private Bunifu.Framework.UI.BunifuFlatButton btnPainelMotoboy;
+		private Bunifu.Framework.UI.BunifuFlatButton btnBebidas;
 	}
 }

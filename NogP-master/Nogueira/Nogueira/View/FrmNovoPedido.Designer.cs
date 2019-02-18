@@ -70,11 +70,20 @@
 			this.label21 = new System.Windows.Forms.Label();
 			this.labelRS = new System.Windows.Forms.Label();
 			this.labelTotal = new System.Windows.Forms.Label();
+			this.groupBoxBebidas = new System.Windows.Forms.GroupBox();
+			this.maskedTextBoxPrecoBebida = new System.Windows.Forms.MaskedTextBox();
+			this.btnIncluirBebida = new System.Windows.Forms.Button();
+			this.txtQtdBebida = new System.Windows.Forms.TextBox();
+			this.label23 = new System.Windows.Forms.Label();
+			this.label24 = new System.Windows.Forms.Label();
+			this.comboBoxBebida = new System.Windows.Forms.ComboBox();
+			this.label25 = new System.Windows.Forms.Label();
 			this.groupBoxCliente.SuspendLayout();
 			this.groupBoxPizza1Sabor.SuspendLayout();
 			this.groupBoxPizzaMeio.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.groupBoxBebidas.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBoxCliente
@@ -92,9 +101,9 @@
 			this.groupBoxCliente.Controls.Add(this.label4);
 			this.groupBoxCliente.Controls.Add(this.txtNome);
 			this.groupBoxCliente.Controls.Add(this.txtEndereco);
-			this.groupBoxCliente.Location = new System.Drawing.Point(23, 102);
+			this.groupBoxCliente.Location = new System.Drawing.Point(36, 101);
 			this.groupBoxCliente.Name = "groupBoxCliente";
-			this.groupBoxCliente.Size = new System.Drawing.Size(522, 176);
+			this.groupBoxCliente.Size = new System.Drawing.Size(966, 121);
 			this.groupBoxCliente.TabIndex = 48;
 			this.groupBoxCliente.TabStop = false;
 			this.groupBoxCliente.Text = "Dados Cliente";
@@ -103,7 +112,7 @@
 			// label22
 			// 
 			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(224, 60);
+			this.label22.Location = new System.Drawing.Point(226, 61);
 			this.label22.Name = "label22";
 			this.label22.Size = new System.Drawing.Size(56, 13);
 			this.label22.TabIndex = 60;
@@ -117,19 +126,20 @@
 			this.btnBuscarTel.TabIndex = 59;
 			this.btnBuscarTel.Text = "Buscar";
 			this.btnBuscarTel.UseVisualStyleBackColor = true;
+			this.btnBuscarTel.Click += new System.EventHandler(this.btnBuscarTel_Click_1);
 			// 
 			// txtPonto_Referencia
 			// 
-			this.txtPonto_Referencia.Location = new System.Drawing.Point(222, 136);
+			this.txtPonto_Referencia.Location = new System.Drawing.Point(676, 78);
 			this.txtPonto_Referencia.Name = "txtPonto_Referencia";
 			this.txtPonto_Referencia.ReadOnly = true;
-			this.txtPonto_Referencia.Size = new System.Drawing.Size(270, 20);
+			this.txtPonto_Referencia.Size = new System.Drawing.Size(231, 20);
 			this.txtPonto_Referencia.TabIndex = 58;
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(219, 119);
+			this.label6.Location = new System.Drawing.Point(673, 61);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(108, 13);
 			this.label6.TabIndex = 57;
@@ -137,10 +147,10 @@
 			// 
 			// txtComplemento
 			// 
-			this.txtComplemento.Location = new System.Drawing.Point(109, 136);
+			this.txtComplemento.Location = new System.Drawing.Point(588, 78);
 			this.txtComplemento.Name = "txtComplemento";
 			this.txtComplemento.ReadOnly = true;
-			this.txtComplemento.Size = new System.Drawing.Size(90, 20);
+			this.txtComplemento.Size = new System.Drawing.Size(71, 20);
 			this.txtComplemento.TabIndex = 56;
 			// 
 			// txtTelefone
@@ -154,7 +164,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(106, 119);
+			this.label5.Location = new System.Drawing.Point(585, 61);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(74, 13);
 			this.label5.TabIndex = 55;
@@ -163,7 +173,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(35, 23);
+			this.label1.Location = new System.Drawing.Point(35, 26);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(107, 13);
 			this.label1.TabIndex = 48;
@@ -171,7 +181,7 @@
 			// 
 			// txtNumero
 			// 
-			this.txtNumero.Location = new System.Drawing.Point(38, 136);
+			this.txtNumero.Location = new System.Drawing.Point(517, 78);
 			this.txtNumero.Name = "txtNumero";
 			this.txtNumero.ReadOnly = true;
 			this.txtNumero.Size = new System.Drawing.Size(44, 20);
@@ -180,7 +190,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(35, 60);
+			this.label2.Location = new System.Drawing.Point(37, 61);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(38, 13);
 			this.label2.TabIndex = 50;
@@ -189,7 +199,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(35, 119);
+			this.label4.Location = new System.Drawing.Point(514, 61);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(47, 13);
 			this.label4.TabIndex = 53;
@@ -197,7 +207,7 @@
 			// 
 			// txtNome
 			// 
-			this.txtNome.Location = new System.Drawing.Point(38, 77);
+			this.txtNome.Location = new System.Drawing.Point(40, 78);
 			this.txtNome.Name = "txtNome";
 			this.txtNome.ReadOnly = true;
 			this.txtNome.Size = new System.Drawing.Size(161, 20);
@@ -205,7 +215,7 @@
 			// 
 			// txtEndereco
 			// 
-			this.txtEndereco.Location = new System.Drawing.Point(222, 77);
+			this.txtEndereco.Location = new System.Drawing.Point(224, 78);
 			this.txtEndereco.Name = "txtEndereco";
 			this.txtEndereco.ReadOnly = true;
 			this.txtEndereco.Size = new System.Drawing.Size(270, 20);
@@ -220,9 +230,9 @@
 			this.groupBoxPizza1Sabor.Controls.Add(this.label15);
 			this.groupBoxPizza1Sabor.Controls.Add(this.comboBoxPizza1Sabor);
 			this.groupBoxPizza1Sabor.Controls.Add(this.label14);
-			this.groupBoxPizza1Sabor.Location = new System.Drawing.Point(515, 305);
+			this.groupBoxPizza1Sabor.Location = new System.Drawing.Point(553, 245);
 			this.groupBoxPizza1Sabor.Name = "groupBoxPizza1Sabor";
-			this.groupBoxPizza1Sabor.Size = new System.Drawing.Size(444, 160);
+			this.groupBoxPizza1Sabor.Size = new System.Drawing.Size(449, 160);
 			this.groupBoxPizza1Sabor.TabIndex = 49;
 			this.groupBoxPizza1Sabor.TabStop = false;
 			this.groupBoxPizza1Sabor.Text = "Pizza de 1 Sabor";
@@ -239,7 +249,7 @@
 			// 
 			// btnIncluir1Sabor
 			// 
-			this.btnIncluir1Sabor.Location = new System.Drawing.Point(287, 96);
+			this.btnIncluir1Sabor.Location = new System.Drawing.Point(38, 97);
 			this.btnIncluir1Sabor.Name = "btnIncluir1Sabor";
 			this.btnIncluir1Sabor.Size = new System.Drawing.Size(96, 36);
 			this.btnIncluir1Sabor.TabIndex = 6;
@@ -303,9 +313,9 @@
 			this.groupBoxPizzaMeio.Controls.Add(this.label18);
 			this.groupBoxPizzaMeio.Controls.Add(this.comboBoxMeio1);
 			this.groupBoxPizzaMeio.Controls.Add(this.label19);
-			this.groupBoxPizzaMeio.Location = new System.Drawing.Point(23, 305);
+			this.groupBoxPizzaMeio.Location = new System.Drawing.Point(36, 245);
 			this.groupBoxPizzaMeio.Name = "groupBoxPizzaMeio";
-			this.groupBoxPizzaMeio.Size = new System.Drawing.Size(455, 160);
+			this.groupBoxPizzaMeio.Size = new System.Drawing.Size(479, 160);
 			this.groupBoxPizzaMeio.TabIndex = 50;
 			this.groupBoxPizzaMeio.TabStop = false;
 			this.groupBoxPizzaMeio.Text = "Pizza 1/2  a 1/2";
@@ -358,7 +368,7 @@
 			// 
 			// btnIncluirMeio
 			// 
-			this.btnIncluirMeio.Location = new System.Drawing.Point(321, 73);
+			this.btnIncluirMeio.Location = new System.Drawing.Point(319, 96);
 			this.btnIncluirMeio.Name = "btnIncluirMeio";
 			this.btnIncluirMeio.Size = new System.Drawing.Size(96, 36);
 			this.btnIncluirMeio.TabIndex = 6;
@@ -396,7 +406,7 @@
 			// labelMotoboy
 			// 
 			this.labelMotoboy.AutoSize = true;
-			this.labelMotoboy.Location = new System.Drawing.Point(576, 45);
+			this.labelMotoboy.Location = new System.Drawing.Point(596, 48);
 			this.labelMotoboy.Name = "labelMotoboy";
 			this.labelMotoboy.Size = new System.Drawing.Size(169, 13);
 			this.labelMotoboy.TabIndex = 51;
@@ -406,7 +416,7 @@
 			// comboBoxMotoboy
 			// 
 			this.comboBoxMotoboy.FormattingEnabled = true;
-			this.comboBoxMotoboy.Location = new System.Drawing.Point(758, 42);
+			this.comboBoxMotoboy.Location = new System.Drawing.Point(778, 45);
 			this.comboBoxMotoboy.Name = "comboBoxMotoboy";
 			this.comboBoxMotoboy.Size = new System.Drawing.Size(201, 21);
 			this.comboBoxMotoboy.TabIndex = 52;
@@ -440,7 +450,7 @@
 			// 
 			this.groupBox7.Controls.Add(this.radioButtonEntrega);
 			this.groupBox7.Controls.Add(this.radioButtonBalcao);
-			this.groupBox7.Location = new System.Drawing.Point(23, 22);
+			this.groupBox7.Location = new System.Drawing.Point(36, 25);
 			this.groupBox7.Name = "groupBox7";
 			this.groupBox7.Size = new System.Drawing.Size(522, 54);
 			this.groupBox7.TabIndex = 55;
@@ -450,15 +460,15 @@
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(23, 496);
+			this.dataGridView1.Location = new System.Drawing.Point(36, 547);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(651, 174);
+			this.dataGridView1.Size = new System.Drawing.Size(651, 123);
 			this.dataGridView1.TabIndex = 56;
 			// 
 			// btnRemove
 			// 
-			this.btnRemove.Location = new System.Drawing.Point(697, 506);
+			this.btnRemove.Location = new System.Drawing.Point(699, 547);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(100, 39);
 			this.btnRemove.TabIndex = 57;
@@ -469,7 +479,7 @@
 			// label21
 			// 
 			this.label21.AutoSize = true;
-			this.label21.Location = new System.Drawing.Point(704, 588);
+			this.label21.Location = new System.Drawing.Point(850, 645);
 			this.label21.Name = "label21";
 			this.label21.Size = new System.Drawing.Size(31, 13);
 			this.label21.TabIndex = 58;
@@ -478,7 +488,7 @@
 			// labelRS
 			// 
 			this.labelRS.AutoSize = true;
-			this.labelRS.Location = new System.Drawing.Point(742, 587);
+			this.labelRS.Location = new System.Drawing.Point(887, 645);
 			this.labelRS.Name = "labelRS";
 			this.labelRS.Size = new System.Drawing.Size(21, 13);
 			this.labelRS.TabIndex = 59;
@@ -487,14 +497,94 @@
 			// labelTotal
 			// 
 			this.labelTotal.AutoSize = true;
-			this.labelTotal.Location = new System.Drawing.Point(770, 587);
+			this.labelTotal.Location = new System.Drawing.Point(915, 645);
 			this.labelTotal.Name = "labelTotal";
 			this.labelTotal.Size = new System.Drawing.Size(0, 13);
 			this.labelTotal.TabIndex = 60;
 			// 
+			// groupBoxBebidas
+			// 
+			this.groupBoxBebidas.Controls.Add(this.maskedTextBoxPrecoBebida);
+			this.groupBoxBebidas.Controls.Add(this.btnIncluirBebida);
+			this.groupBoxBebidas.Controls.Add(this.txtQtdBebida);
+			this.groupBoxBebidas.Controls.Add(this.label23);
+			this.groupBoxBebidas.Controls.Add(this.label24);
+			this.groupBoxBebidas.Controls.Add(this.comboBoxBebida);
+			this.groupBoxBebidas.Controls.Add(this.label25);
+			this.groupBoxBebidas.Location = new System.Drawing.Point(36, 424);
+			this.groupBoxBebidas.Name = "groupBoxBebidas";
+			this.groupBoxBebidas.Size = new System.Drawing.Size(507, 101);
+			this.groupBoxBebidas.TabIndex = 61;
+			this.groupBoxBebidas.TabStop = false;
+			this.groupBoxBebidas.Text = "Bebidas";
+			this.groupBoxBebidas.Visible = false;
+			// 
+			// maskedTextBoxPrecoBebida
+			// 
+			this.maskedTextBoxPrecoBebida.Enabled = false;
+			this.maskedTextBoxPrecoBebida.Location = new System.Drawing.Point(287, 47);
+			this.maskedTextBoxPrecoBebida.Mask = "$ 99,99";
+			this.maskedTextBoxPrecoBebida.Name = "maskedTextBoxPrecoBebida";
+			this.maskedTextBoxPrecoBebida.Size = new System.Drawing.Size(85, 20);
+			this.maskedTextBoxPrecoBebida.TabIndex = 15;
+			// 
+			// btnIncluirBebida
+			// 
+			this.btnIncluirBebida.Location = new System.Drawing.Point(398, 38);
+			this.btnIncluirBebida.Name = "btnIncluirBebida";
+			this.btnIncluirBebida.Size = new System.Drawing.Size(96, 36);
+			this.btnIncluirBebida.TabIndex = 6;
+			this.btnIncluirBebida.Text = "+ Incluir";
+			this.btnIncluirBebida.UseVisualStyleBackColor = true;
+			// 
+			// txtQtdBebida
+			// 
+			this.txtQtdBebida.Enabled = false;
+			this.txtQtdBebida.Location = new System.Drawing.Point(196, 48);
+			this.txtQtdBebida.Name = "txtQtdBebida";
+			this.txtQtdBebida.Size = new System.Drawing.Size(59, 20);
+			this.txtQtdBebida.TabIndex = 5;
+			this.txtQtdBebida.Text = "1";
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Location = new System.Drawing.Point(193, 31);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(62, 13);
+			this.label23.TabIndex = 4;
+			this.label23.Text = "Quantidade";
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(284, 31);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(35, 13);
+			this.label24.TabIndex = 2;
+			this.label24.Text = "Preço";
+			// 
+			// comboBoxBebida
+			// 
+			this.comboBoxBebida.FormattingEnabled = true;
+			this.comboBoxBebida.Location = new System.Drawing.Point(38, 47);
+			this.comboBoxBebida.Name = "comboBoxBebida";
+			this.comboBoxBebida.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxBebida.TabIndex = 1;
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Location = new System.Drawing.Point(35, 31);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(40, 13);
+			this.label25.TabIndex = 0;
+			this.label25.Text = "Bebida";
+			// 
 			// FrmNovoPedido
 			// 
 			this.ClientSize = new System.Drawing.Size(1123, 682);
+			this.Controls.Add(this.groupBoxBebidas);
 			this.Controls.Add(this.labelTotal);
 			this.Controls.Add(this.labelRS);
 			this.Controls.Add(this.label21);
@@ -517,6 +607,8 @@
 			this.groupBox7.ResumeLayout(false);
 			this.groupBox7.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.groupBoxBebidas.ResumeLayout(false);
+			this.groupBoxBebidas.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -585,5 +677,13 @@
 		private System.Windows.Forms.Label label21;
 		private System.Windows.Forms.Label labelRS;
 		private System.Windows.Forms.Label labelTotal;
+		private System.Windows.Forms.GroupBox groupBoxBebidas;
+		private System.Windows.Forms.MaskedTextBox maskedTextBoxPrecoBebida;
+		private System.Windows.Forms.Button btnIncluirBebida;
+		private System.Windows.Forms.TextBox txtQtdBebida;
+		private System.Windows.Forms.Label label23;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.ComboBox comboBoxBebida;
+		private System.Windows.Forms.Label label25;
 	}
 }

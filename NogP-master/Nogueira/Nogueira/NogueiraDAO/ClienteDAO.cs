@@ -49,8 +49,8 @@ namespace Nogueira.NogueiraDAO
         {
             ConectarAccess();
 
-            string comando = "INSERT INTO Clientes (telefone, nome, endereco, numero, complemento, ponto_referencia, data_aniversario)" +
-                                    "values(@telefone, @nome, @endereco, @numero, @complemento, @ponto_referencia, @data_aniversario)";
+            string comando = "INSERT INTO Clientes (telefone, nome, endereco, numero, complemento, ponto_referencia, data_aniversario, bairro)" +
+									"values(@telefone, @nome, @endereco, @numero, @complemento, @ponto_referencia, @data_aniversario, @bairro)";
 
             OleDbCommand cmd = new OleDbCommand(comando, conn);
 
@@ -61,8 +61,9 @@ namespace Nogueira.NogueiraDAO
             cmd.Parameters.Add("@complemento", OleDbType.VarChar).Value = dadosCliente.Complemento;
             cmd.Parameters.Add("@ponto_referencia", OleDbType.VarChar).Value = dadosCliente.PontoReferencia;
             cmd.Parameters.Add("@data_aniversario", OleDbType.VarChar).Value = dadosCliente.DataAniversario;
+			cmd.Parameters.Add("@bairro", OleDbType.VarChar).Value = dadosCliente.Bairro;
 
-            try
+			try
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cliente Cadastrado com Sucesso!");

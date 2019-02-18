@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nogueira.View_ADM.Motoboy;
+using Nogueira.View_ADM.Bebida;
 
 namespace Nogueira
 {
@@ -17,6 +18,7 @@ namespace Nogueira
 	{
 		FrmPizza _objFormPizza = new FrmPizza();
 		FrmMotoboy _objFormMotoboy = new FrmMotoboy();
+		FrmBebida _objFormBebida = new FrmBebida();
 
 		public string nomeUser { get; set; }
 
@@ -33,6 +35,7 @@ namespace Nogueira
 		private void btnPainelPizza_Click(object sender, EventArgs e)
 		{
 			_objFormMotoboy?.Close();
+			_objFormBebida?.Close();
 
 			_objFormPizza = new FrmPizza();
 			_objFormPizza.TopLevel = false;
@@ -47,6 +50,7 @@ namespace Nogueira
 		private void btnPainelMotoboy_Click(object sender, EventArgs e)
 		{
 			_objFormPizza?.Close();
+			_objFormBebida?.Close();
 
 			_objFormMotoboy = new FrmMotoboy();
 			_objFormMotoboy.TopLevel = false;
@@ -56,6 +60,21 @@ namespace Nogueira
 
 			panelAdm.Controls.Add(_objFormMotoboy);
 			_objFormMotoboy.Show();
+		}
+
+		private void btnBebidas_Click(object sender, EventArgs e)
+		{
+			_objFormPizza?.Close();
+			_objFormMotoboy?.Close();
+
+			_objFormBebida = new FrmBebida();
+			_objFormBebida.TopLevel = false;
+			_objFormBebida.FormBorderStyle = FormBorderStyle.None;
+			_objFormBebida.Dock = DockStyle.Fill;
+			_objFormBebida.nomeUsuario = nomeUser;
+
+			panelAdm.Controls.Add(_objFormBebida);
+			_objFormBebida.Show();
 		}
 	}
 }

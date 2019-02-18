@@ -32,8 +32,18 @@ namespace Nogueira
             dadosCliente.Complemento = txtComplemento.Text;
             dadosCliente.PontoReferencia = txtPonto_Referencia.Text;
             dadosCliente.DataAniversario = txtData_Aniversario.Text;
+			dadosCliente.Bairro = txtBairro.Text;
 
             clienteBusiness.Cadastrar(dadosCliente);
         }
-    }
+
+		private void txtCEP_Leave(object sender, EventArgs e)
+		{
+			var ws = new WSCorreios.AtendeClienteClient();
+			var resposta = ws.consultaCEP(txtCEP.Text);
+
+			txtEndereco.Text = resposta.end;
+			txtBairro.Text = resposta.bairro;
+		}
+	}
 }

@@ -15,5 +15,7 @@ namespace Nogueira.NogueiraDTO
         public string Complemento { get; set; }
         public string PontoReferencia { get; set; }
         public string DataAniversario { get; set; }
+		public string Bairro { get; set; }
+		
     }
 }

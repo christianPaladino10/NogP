@@ -42,3 +42,5 @@ C:\Users\Christian\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\No
 C:\Users\Christian\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.pdb
 C:\Users\Christian\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.View_ADM.Motoboy.FrmMotoboy.resources
 C:\Users\Christian\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.View_ADM.Motoboy.FrmCadastrarMotoboy.resources
+C:\Users\Christian\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.View_ADM.Bebida.FrmBebida.resources
+C:\Users\Christian\source\repos\NogP2\NogP-master\Nogueira\Nogueira\obj\Debug\Nogueira.View_ADM.Bebida.FrmCadastrarBebida.resources
