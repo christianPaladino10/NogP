@@ -8,6 +8,7 @@ namespace Nogueira.NogueiraDTO
 {
     public class ClienteDTO
     {
+        public string ClienteID { get; set; }
         public string Nome { get; set; }
         public string Endereco { get; set; }
         public string Telefone { get; set; }

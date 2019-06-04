@@ -38,5 +38,12 @@ namespace Nogueira.NogueiraBusiness
 			BebidaDAO bebidaDAO = new BebidaDAO();
 			return bebidaDAO.BuscarTodasBebidas();
 		}
-	}
+
+        internal double AlterarTextBoxConformeCombo(string bebidaSelecionada)
+        {
+            BebidaDAO bebidaDAO = new BebidaDAO();
+            return bebidaDAO.AlterarTextBoxConformeCombo(bebidaSelecionada);
+
+        }
+    }
 }

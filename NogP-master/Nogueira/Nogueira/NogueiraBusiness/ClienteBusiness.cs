@@ -21,5 +21,12 @@ namespace Nogueira.NogueiraBusiness
             ClienteDAO clienteDAO = new ClienteDAO();
             clienteDAO.BuscarPorTelefone(telefone, dadosCliente);
         }
+
+        internal string BuscarIdCliente(string telefone)
+        {
+            ClienteDAO clienteDAO = new ClienteDAO();
+            string idCliente = clienteDAO.BuscarIdCliente(telefone);
+            return idCliente;
+        }
     }
 }

@@ -16,6 +16,40 @@ namespace Nogueira.NogueiraDAO
     {
         OleDbConnection conn;
 
+        public void ConectarAccess()
+        {
+            Conexao con = new Conexao();
+            conn = con.ConectarAccess(ref conn);
+        }
+
+        internal string BuscarIdCliente(string telefone)
+        {
+            ConectarAccess();
+
+            string comando = "SELECT ID_cliente FROM Clientes WHERE telefone = @telefone";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+            cmd.Parameters.Add("@telefone", OleDbType.VarChar).Value = telefone;
+
+            try
+            {
+                int idCli = (int)cmd.ExecuteScalar();
+                string idCliente = idCli.ToString();
+                return idCliente;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+
+        }
+
         #region [Conectar Excel]
         //public void ConectarExcel(string filePath)
         //{
@@ -39,18 +73,12 @@ namespace Nogueira.NogueiraDAO
         //}
         #endregion
 
-        public void ConectarAccess()
-        {
-            Conexao con = new Conexao();
-            conn = con.ConectarAccess(ref conn);
-        }
-
         internal void Cadastrar(ClienteDTO dadosCliente)
         {
             ConectarAccess();
 
             string comando = "INSERT INTO Clientes (telefone, nome, endereco, numero, complemento, ponto_referencia, data_aniversario, bairro)" +
-									"values(@telefone, @nome, @endereco, @numero, @complemento, @ponto_referencia, @data_aniversario, @bairro)";
+                                    "values(@telefone, @nome, @endereco, @numero, @complemento, @ponto_referencia, @data_aniversario, @bairro)";
 
             OleDbCommand cmd = new OleDbCommand(comando, conn);
 
@@ -61,9 +89,9 @@ namespace Nogueira.NogueiraDAO
             cmd.Parameters.Add("@complemento", OleDbType.VarChar).Value = dadosCliente.Complemento;
             cmd.Parameters.Add("@ponto_referencia", OleDbType.VarChar).Value = dadosCliente.PontoReferencia;
             cmd.Parameters.Add("@data_aniversario", OleDbType.VarChar).Value = dadosCliente.DataAniversario;
-			cmd.Parameters.Add("@bairro", OleDbType.VarChar).Value = dadosCliente.Bairro;
+            cmd.Parameters.Add("@bairro", OleDbType.VarChar).Value = dadosCliente.Bairro;
 
-			try
+            try
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cliente Cadastrado com Sucesso!");
@@ -96,6 +124,7 @@ namespace Nogueira.NogueiraDAO
                 }
 
                 dr.Read();
+                dadosCliente.ClienteID = Convert.ToString(dr["ID_cliente"]);
                 dadosCliente.Nome = Convert.ToString(dr["nome"]);
                 dadosCliente.Endereco = Convert.ToString(dr["endereco"]);
                 dadosCliente.Numero = Convert.ToString(dr["numero"]);
@@ -112,5 +141,6 @@ namespace Nogueira.NogueiraDAO
                 if (conn != null) conn.Dispose();
             }
         }
+
     }
 }

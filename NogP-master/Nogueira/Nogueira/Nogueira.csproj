@@ -62,14 +62,17 @@
     <Compile Include="NogueiraBusiness\IngredienteBusiness.cs" />
     <Compile Include="NogueiraBusiness\MotoboyBusiness.cs" />
     <Compile Include="NogueiraBusiness\PizzaBusiness.cs" />
+    <Compile Include="NogueiraBusiness\VendaBusiness.cs" />
     <Compile Include="NogueiraDAO\BebidaDAO.cs" />
     <Compile Include="NogueiraDAO\IngredienteDAO.cs" />
     <Compile Include="NogueiraDAO\MotoboyDAO.cs" />
     <Compile Include="NogueiraDAO\PizzaDAO.cs" />
+    <Compile Include="NogueiraDAO\VendaDAO.cs" />
     <Compile Include="NogueiraDTO\BebidaDTO.cs" />
     <Compile Include="NogueiraDTO\IngredienteDTO.cs" />
     <Compile Include="NogueiraDTO\MotoboyDTO.cs" />
     <Compile Include="NogueiraDTO\PizzaDTO.cs" />
+    <Compile Include="NogueiraDTO\VendaDTO.cs" />
     <Compile Include="View ADM\Bebida\FrmBebida.cs">
       <SubType>Form</SubType>
     </Compile>

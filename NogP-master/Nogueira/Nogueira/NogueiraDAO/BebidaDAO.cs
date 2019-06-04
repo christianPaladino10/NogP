@@ -10,72 +10,101 @@ using Nogueira.NogueiraDTO;
 
 namespace Nogueira.NogueiraDAO
 {
-	public class BebidaDAO
-	{
-		OleDbConnection conn;
+    public class BebidaDAO
+    {
+        OleDbConnection conn;
 
-		public void ConectarAccess()
-		{
-			Conexao con = new Conexao();
-			conn = con.ConectarAccess(ref conn);
-		}
+        public void ConectarAccess()
+        {
+            Conexao con = new Conexao();
+            conn = con.ConectarAccess(ref conn);
+        }
 
-		internal void Cadastrar(BebidaDTO dadosBebida)
-		{
-			ConectarAccess();
+        internal void Cadastrar(BebidaDTO dadosBebida)
+        {
+            ConectarAccess();
 
-			string comando = "INSERT INTO Bebidas (Descricao, Preco)" +
-									"values(@Descricao, @Preco)";
+            string comando = "INSERT INTO Bebidas (Descricao, Preco)" +
+                                    "values(@Descricao, @Preco)";
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-			cmd.Parameters.Add("@Descricao", OleDbType.VarChar).Value = dadosBebida.DescricaoBebida;
-			cmd.Parameters.Add("@Preco", OleDbType.VarChar).Value = dadosBebida.Preco;
+            cmd.Parameters.Add("@Descricao", OleDbType.VarChar).Value = dadosBebida.DescricaoBebida;
+            cmd.Parameters.Add("@Preco", OleDbType.VarChar).Value = dadosBebida.Preco;
 
-			try
-			{
-				cmd.ExecuteNonQuery();
-				MessageBox.Show("Bebida Cadastrado com Sucesso!");
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
-		}
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Bebida Cadastrado com Sucesso!");
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
 
-		internal DataTable BuscarTodasBebidas()
-		{
-			ConectarAccess();
+        internal double AlterarTextBoxConformeCombo(string bebidaSelecionada)
+        {
 
-			DataTable dt = new DataTable();
-			string comando = "SELECT * FROM Bebidas";
+            ConectarAccess();
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
+            string comando = "SELECT Preco FROM Bebidas WHERE Descricao = @Descricao";
 
-			try
-			{
-				dt.Load(cmd.ExecuteReader());
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+            cmd.Parameters.Add("@Descricao", OleDbType.VarChar).Value = bebidaSelecionada;
 
-				var rw = dt.NewRow();
-				rw[1] = "";
-				dt.Rows.InsertAt(rw, 0);
-				return dt;
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-				return null;
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
-		}
-	}
+            try
+            {
+                var result = cmd.ExecuteScalar();
+                double preco = double.Parse(result.ToString());
+                return preco;
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return 0;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+
+        }
+
+        internal DataTable BuscarTodasBebidas()
+        {
+            ConectarAccess();
+
+            DataTable dt = new DataTable();
+            string comando = "SELECT * FROM Bebidas";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            try
+            {
+                dt.Load(cmd.ExecuteReader());
+
+                var rw = dt.NewRow();
+                rw[1] = "";
+                dt.Rows.InsertAt(rw, 0);
+                return dt;
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+    }
 }
