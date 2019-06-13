@@ -18,8 +18,8 @@ namespace Nogueira
         {
             InitializeComponent();
         }
-        DataTable table = new DataTable();
 
+        DataTable table = new DataTable();
 
         private void FrmNovoPedido_Load(object sender, EventArgs e)
         {
@@ -54,11 +54,7 @@ namespace Nogueira
             comboBoxBebida.ValueMember = "Id_Bebida";
             comboBoxBebida.DisplayMember = "Descricao";
 
-            table.Columns.Add("Qtde", typeof(int));
-            table.Columns.Add("Descrição", typeof(string));
-            table.Columns.Add("Vl. Unitário", typeof(string));
-            table.Columns.Add("IdProduto", typeof(int));
-            
+            InstanciarDataTable();
         }
 
         private void btnBuscarTel_Click(object sender, EventArgs e)
@@ -125,14 +121,26 @@ namespace Nogueira
         private void btnIncluir1Sabor_Click(object sender, EventArgs e)
         {
             PizzaBusiness pizzaBusiness = new PizzaBusiness();
+            string pizza = "Pizza";
 
-            table.Rows.Add(txtQtd1Sabor.Text, comboBoxPizza1Sabor.Text, maskedTextBoxPreco.Text, comboBoxPizza1Sabor.SelectedValue);
+            table.Rows.Add(txtQtd1Sabor.Text, comboBoxPizza1Sabor.Text, maskedTextBoxPreco.Text, comboBoxPizza1Sabor.SelectedValue,
+                pizza);
             dataGridView1.DataSource = table;
             dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
 
             SetDataGridView(dataGridView1);
 
             labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+        }
+
+        private void InstanciarDataTable()
+        {
+            table.Columns.Add("Qtde", typeof(int));
+            table.Columns.Add("Descrição", typeof(string));
+            table.Columns.Add("Vl. Unitário", typeof(string));
+            table.Columns.Add("IdProduto", typeof(string));
+            table.Columns.Add("Tipo Produto", typeof(string));
         }
 
         private void btnIncluirMeio_Click(object sender, EventArgs e)
@@ -140,16 +148,34 @@ namespace Nogueira
             if (comboBoxMeio1.SelectedIndex != 0 && comboBoxMeio2.SelectedIndex != 0)
             {
                 PizzaBusiness pizzaBusiness = new PizzaBusiness();
+
                 string preco1 = maskedTextBoxPrecoMeio1.Text;
                 string preco2 = maskedTextBoxPrecoMeio2.Text;
                 string preco = pizzaBusiness.DescobrirMaiorValor(preco1, preco2);
                 preco = "R$ " + preco;
 
-                table.Rows.Add(1, "Meio " + comboBoxMeio1.Text + " & Meio " + comboBoxMeio2.Text, preco);
-                dataGridView1.DataSource = table;
-                SetDataGridView(dataGridView1);
+                string pizzaMeioAMeio = "Pizza Meio a Meio";
+                string idPizzaMetade1 = comboBoxMeio1.SelectedValue.ToString();
+                string idPizzaMetade2 = comboBoxMeio2.SelectedValue.ToString();
 
-                labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+                if (idPizzaMetade1 != idPizzaMetade2)
+                {
+                    table.Rows.Add(1, "Meio " + comboBoxMeio1.Text + " & Meio " + comboBoxMeio2.Text, preco,
+                     idPizzaMetade1 + "," + idPizzaMetade2, pizzaMeioAMeio);
+
+                    dataGridView1.DataSource = table;
+                    dataGridView1.Columns[3].Visible = false;
+                    dataGridView1.Columns[4].Visible = false;
+
+                    SetDataGridView(dataGridView1);
+
+                    labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione pizzas de sabores diferentes");
+                }
+                
             }
             else
             {
@@ -245,11 +271,12 @@ namespace Nogueira
 
                     int idVenda = vendaBusiness.GravarPedido(vendaDTO);                   
 
-                    foreach (var DataRow in table.Rows)
+                    foreach (DataRow DataRow in table.Rows)
                     {
                         vendaBusiness.GravarNpraN(DataRow, idVenda);
                     }
-
+                    MessageBox.Show("Pedido Finalizado");
+                    LimparForm();
                 }
             }
             else
@@ -258,12 +285,45 @@ namespace Nogueira
             }
         }
 
+        private void LimparForm()
+        {
+            comboBoxMotoboy.SelectedIndex = 0;
+            comboBoxPizza1Sabor.SelectedIndex = 0;
+            comboBoxMeio1.SelectedIndex = 0;
+            comboBoxMeio2.SelectedIndex = 0;
+            comboBoxBebida.SelectedIndex = 0;
+
+            txtTelefone.Clear();
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            txtNumero.Text = "";
+            txtComplemento.Text = "";
+            txtPonto_Referencia.Text = "";
+
+            maskedTextBoxPrecoMeio1.Text = "";
+            maskedTextBoxPrecoMeio2.Text = "";
+            maskedTextBoxPreco.Text = "";
+            maskedTextBoxPrecoBebida.Text = "";
+
+            radioButtonEntrega.Checked = false;
+            radioButtonBalcao.Checked = false;
+
+            dataGridView1.DataSource = null;
+            table.Clear();
+        }
+
         private void BtnIncluirBebida_Click(object sender, EventArgs e)
         {
             PizzaBusiness pizzaBusiness = new PizzaBusiness();
+            string bebida = "Bebida";
 
-            table.Rows.Add(txtQtdBebida.Text, comboBoxBebida.Text, maskedTextBoxPrecoBebida.Text);
+            table.Rows.Add(txtQtdBebida.Text, comboBoxBebida.Text, maskedTextBoxPrecoBebida.Text, comboBoxBebida.SelectedValue, 
+                bebida);
+
             dataGridView1.DataSource = table;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+
             SetDataGridView(dataGridView1);
 
             labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);

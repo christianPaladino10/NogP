@@ -19,35 +19,84 @@ namespace Nogueira.NogueiraDAO
             conn = con.ConectarAccess(ref conn);
         }
 
-        internal void GravarNpraN(object dataRow, int idVenda)
+        internal void GravarNpraN(DataRow dataRow, int idVenda, string tabelaDestino, List<string> listaIdPizza)
         {
             ConectarAccess();
 
-            string comando = "INSERT INTO Venda (IdCliente, ValorTotal, DataVenda)" +
-                                    "values(@IdCliente, @ValorTotal, @DataVenda)";
+            string comando = "INSERT INTO " + tabelaDestino + "(IdVenda, IdPizza, FlagMeioAMeio)" +
+                                                  "values(@IdVenda, @IdPizza, @FlagMeioAMeio)";
+
+            try
+            {
+                foreach (var item in listaIdPizza)
+                {
+                    OleDbCommand cmd = new OleDbCommand(comando, conn);
+                    cmd.Parameters.Add("@IdVenda", OleDbType.Integer).Value = idVenda;
+                    cmd.Parameters.Add("@IdPizza", OleDbType.Integer).Value = item;
+                    cmd.Parameters.Add("@FlagMeioAMeio", OleDbType.Integer).Value = 1;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal void GravarNpraN(DataRow dataRow, int idVenda, string tabelaDestino)
+        {
+            ConectarAccess();
+            string comando = "";
+
+            if (tabelaDestino == "Venda_has_Pizzas")
+            {
+                comando = "INSERT INTO " + tabelaDestino + "(IdVenda, IdPizza, FlagMeioAMeio)" +
+                                                   "values(@IdVenda, @IdPizza, @FlagMeioAMeio)";
+            }
+            else
+            {
+                comando = "INSERT INTO " + tabelaDestino + "(IdVenda, IdBebida)" +
+                                                   "values(@IdVenda, @IdBebida)";
+            }
 
             OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-            //cmd.Parameters.Add("@IdCliente", OleDbType.VarChar).Value = vendaDTO.ClienteId;
-            //cmd.Parameters.Add("@ValorTotal", OleDbType.Currency).Value = vendaDTO.ValorTotal;
-            //cmd.Parameters.Add("@DataVenda", OleDbType.Currency).Value = vendaDTO.DtVenda;
+            cmd.Parameters.Add("@IdVenda", OleDbType.Integer).Value = idVenda;
 
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //    MessageBox.Show("Pedido Finalizado!");
-            //}
-            //catch (Exception E)
-            //{
-            //    MessageBox.Show(E.Message);
-            //}
-            //finally
-            //{
-            //    if (conn.State == ConnectionState.Open) conn.Close();
-            //    if (conn != null) conn.Dispose();
-            //}
+            if (dataRow[4].ToString() == "Pizza")
+            {
+                cmd.Parameters.Add("@IdPizza", OleDbType.Integer).Value = dataRow[3];
+                cmd.Parameters.Add("@FlagMeioAMeio", OleDbType.Integer).Value = 0;
+            }
+            else if (dataRow[4].ToString() == "Pizza Meio a Meio")
+            {
+                cmd.Parameters.Add("@IdPizza", OleDbType.Integer).Value = dataRow[3];
+                cmd.Parameters.Add("@FlagMeioAMeio", OleDbType.Integer).Value = 1;
+            }
+            else
+            {
+                cmd.Parameters.Add("@IdBebida", OleDbType.Integer).Value = dataRow[3];
+            }
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
         }
-
         internal int BuscarIdVenda()
         {
             ConectarAccess();
@@ -89,7 +138,6 @@ namespace Nogueira.NogueiraDAO
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Pedido Finalizado!");
             }
             catch (Exception E)
             {
