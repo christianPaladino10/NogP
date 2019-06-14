@@ -20,6 +20,7 @@ namespace Nogueira
         }
 
         DataTable table = new DataTable();
+        bool p1, p2, p3, p4 = false;
 
         private void FrmNovoPedido_Load(object sender, EventArgs e)
         {
@@ -54,6 +55,12 @@ namespace Nogueira
             comboBoxBebida.ValueMember = "Id_Bebida";
             comboBoxBebida.DisplayMember = "Descricao";
 
+            btnRemove.Visible = false;
+            btnFinalizarPedido.Visible = false;
+            txtQtd1Sabor.Visible = false;
+            txtQtdBebida.Visible = false;
+
+            SetColapse();
             InstanciarDataTable();
         }
 
@@ -132,6 +139,8 @@ namespace Nogueira
             SetDataGridView(dataGridView1);
 
             labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+            btnRemove.Visible = true;
+            btnFinalizarPedido.Visible = true;
         }
 
         private void InstanciarDataTable()
@@ -170,12 +179,14 @@ namespace Nogueira
                     SetDataGridView(dataGridView1);
 
                     labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+                    btnRemove.Visible = true;
+                    btnFinalizarPedido.Visible = true;
                 }
                 else
                 {
                     MessageBox.Show("Selecione pizzas de sabores diferentes");
                 }
-                
+
             }
             else
             {
@@ -188,6 +199,14 @@ namespace Nogueira
             dataGridView1.Columns[0].Width = 80;
             dataGridView1.Columns[1].Width = 403;
             dataGridView1.Columns[2].Width = 125;
+        }
+
+        private void SetColapse()
+        {
+            groupBoxPizza1Sabor.Height = 0;
+            groupBoxPizzaMeio.Height = 0;
+            groupBoxBebidas.Height = 0;
+            btnBebida.Top = groupBoxPizza1Sabor.Top;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -269,7 +288,7 @@ namespace Nogueira
                     vendaDTO.ClienteId = clienteBusiness.BuscarIdCliente(numCliente);
                     vendaDTO.ValorTotal = labelTotal.Text;
 
-                    int idVenda = vendaBusiness.GravarPedido(vendaDTO);                   
+                    int idVenda = vendaBusiness.GravarPedido(vendaDTO);
 
                     foreach (DataRow DataRow in table.Rows)
                     {
@@ -294,22 +313,38 @@ namespace Nogueira
             comboBoxBebida.SelectedIndex = 0;
 
             txtTelefone.Clear();
-            txtNome.Text = "";
-            txtEndereco.Text = "";
-            txtNumero.Text = "";
-            txtComplemento.Text = "";
-            txtPonto_Referencia.Text = "";
+            txtNome.Clear();
+            txtEndereco.Clear();
+            txtNumero.Clear();
+            txtComplemento.Clear();
+            txtPonto_Referencia.Clear();
 
-            maskedTextBoxPrecoMeio1.Text = "";
-            maskedTextBoxPrecoMeio2.Text = "";
-            maskedTextBoxPreco.Text = "";
-            maskedTextBoxPrecoBebida.Text = "";
+            maskedTextBoxPrecoMeio1.Clear();
+            maskedTextBoxPrecoMeio2.Clear();
+            maskedTextBoxPreco.Clear();
+            maskedTextBoxPrecoBebida.Clear();
 
             radioButtonEntrega.Checked = false;
             radioButtonBalcao.Checked = false;
 
             dataGridView1.DataSource = null;
             table.Clear();
+
+            labelTotal.Text = "";
+
+            DeixarInvisivelOpcoes();
+        }
+
+        private void DeixarInvisivelOpcoes()
+        {
+            labelMotoboy.Visible = false;
+            comboBoxMotoboy.Visible = false;
+            groupBoxCliente.Visible = false;
+            groupBoxPizza1Sabor.Visible = false;
+            groupBoxPizzaMeio.Visible = false;
+            groupBoxBebidas.Visible = false;
+            btnRemove.Visible = false;
+            btnFinalizarPedido.Visible = false;
         }
 
         private void BtnIncluirBebida_Click(object sender, EventArgs e)
@@ -317,7 +352,7 @@ namespace Nogueira
             PizzaBusiness pizzaBusiness = new PizzaBusiness();
             string bebida = "Bebida";
 
-            table.Rows.Add(txtQtdBebida.Text, comboBoxBebida.Text, maskedTextBoxPrecoBebida.Text, comboBoxBebida.SelectedValue, 
+            table.Rows.Add(txtQtdBebida.Text, comboBoxBebida.Text, maskedTextBoxPrecoBebida.Text, comboBoxBebida.SelectedValue,
                 bebida);
 
             dataGridView1.DataSource = table;
@@ -327,6 +362,8 @@ namespace Nogueira
             SetDataGridView(dataGridView1);
 
             labelTotal.Text = pizzaBusiness.AutoSoma(dataGridView1);
+            btnRemove.Visible = true;
+            btnFinalizarPedido.Visible = true;
         }
 
         private void ComboBoxBebida_SelectedIndexChanged(object sender, EventArgs e)
@@ -359,10 +396,88 @@ namespace Nogueira
                     {
                         maskedTextBoxPrecoBebida.Text = "0" + preco.ToString() + "00";
                     }
-                    
+
                 }
-               
+
             }
+        }
+
+        private void BtnPizzaInteira_Click(object sender, EventArgs e)
+        {
+            if (p3) //Bebida está clicado?
+            {
+                if (!p1)
+                {
+                    groupBoxPizza1Sabor.Height = 122;
+                    btnBebida.Top = groupBoxPizza1Sabor.Top + groupBoxPizza1Sabor.Height + 10;
+                    groupBoxBebidas.Top = groupBoxPizza1Sabor.Height * 4 - 40;
+                }
+                else
+                {
+                    groupBoxPizza1Sabor.Height = 0;
+                    btnBebida.Top = groupBoxPizza1Sabor.Top + groupBoxPizza1Sabor.Height + 5;
+                    groupBoxBebidas.Top = groupBoxBebidas.Top - groupBoxBebidas.Height;
+                }
+                p1 = !p1;
+            }
+            else
+            {
+                if (!p1)
+                {
+                    groupBoxPizza1Sabor.Height = 122;
+                    btnBebida.Top = groupBoxPizza1Sabor.Top + groupBoxPizza1Sabor.Height + 10;
+                }
+                else
+                {
+                    groupBoxPizza1Sabor.Height = 0;
+                    btnBebida.Top = groupBoxPizza1Sabor.Top;
+                }
+                p1 = !p1;
+            }
+        }
+
+        private void BtnBebida_Click(object sender, EventArgs e)
+        {
+            if (p1) //Pizza Inteira está clicado?
+            {
+                if (!p3)
+                {
+                    groupBoxBebidas.Height = 122;
+                    groupBoxBebidas.Top = groupBoxBebidas.Height * 4 - 40;
+                }
+                else
+                {
+                    groupBoxBebidas.Height = 0;
+                }
+                p3 = !p3;
+            }
+            else
+            {
+                if (!p3)
+                {
+                    groupBoxBebidas.Height = 122;
+                    groupBoxBebidas.Top = groupBoxPizza1Sabor.Bottom + groupBoxPizza1Sabor.Height + 40;
+                }
+                else
+                {
+                    groupBoxBebidas.Height = 0;
+                }
+                p3 = !p3;
+            }
+
+        }
+
+        private void BtnPizzaMeio_Click(object sender, EventArgs e)
+        {
+            if (!p2)
+            {
+                groupBoxPizzaMeio.Height = 122;
+            }
+            else
+            {
+                groupBoxPizzaMeio.Height = 0;
+            }
+            p2 = !p2;
         }
     }
 }
