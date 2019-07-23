@@ -82,6 +82,7 @@
             this.btnPizzaInteira = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPizzaMeio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnBebida = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxPizza1Sabor.SuspendLayout();
             this.groupBoxPizzaMeio.SuspendLayout();
@@ -106,12 +107,11 @@
             this.groupBoxCliente.Controls.Add(this.txtNome);
             this.groupBoxCliente.Controls.Add(this.txtEndereco);
             this.groupBoxCliente.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxCliente.Location = new System.Drawing.Point(36, 101);
+            this.groupBoxCliente.Location = new System.Drawing.Point(36, 135);
             this.groupBoxCliente.Name = "groupBoxCliente";
             this.groupBoxCliente.Size = new System.Drawing.Size(966, 121);
             this.groupBoxCliente.TabIndex = 48;
             this.groupBoxCliente.TabStop = false;
-            this.groupBoxCliente.Text = "DADOS CLIENTE";
             this.groupBoxCliente.Visible = false;
             // 
             // label22
@@ -248,7 +248,7 @@
             this.groupBoxPizza1Sabor.Controls.Add(this.comboBoxPizza1Sabor);
             this.groupBoxPizza1Sabor.Controls.Add(this.label14);
             this.groupBoxPizza1Sabor.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPizza1Sabor.Location = new System.Drawing.Point(36, 279);
+            this.groupBoxPizza1Sabor.Location = new System.Drawing.Point(36, 313);
             this.groupBoxPizza1Sabor.Name = "groupBoxPizza1Sabor";
             this.groupBoxPizza1Sabor.Size = new System.Drawing.Size(440, 122);
             this.groupBoxPizza1Sabor.TabIndex = 49;
@@ -325,7 +325,7 @@
             this.groupBoxPizzaMeio.Controls.Add(this.comboBoxMeio1);
             this.groupBoxPizzaMeio.Controls.Add(this.label19);
             this.groupBoxPizzaMeio.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPizzaMeio.Location = new System.Drawing.Point(562, 279);
+            this.groupBoxPizzaMeio.Location = new System.Drawing.Point(562, 313);
             this.groupBoxPizzaMeio.Name = "groupBoxPizzaMeio";
             this.groupBoxPizzaMeio.Size = new System.Drawing.Size(440, 122);
             this.groupBoxPizzaMeio.TabIndex = 50;
@@ -480,7 +480,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 581);
+            this.dataGridView1.Location = new System.Drawing.Point(36, 615);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(651, 123);
@@ -491,7 +491,7 @@
             this.btnRemove.BackColor = System.Drawing.Color.DarkRed;
             this.btnRemove.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRemove.Location = new System.Drawing.Point(699, 593);
+            this.btnRemove.Location = new System.Drawing.Point(699, 627);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(118, 39);
             this.btnRemove.TabIndex = 57;
@@ -503,7 +503,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(838, 645);
+            this.label21.Location = new System.Drawing.Point(838, 679);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(43, 12);
             this.label21.TabIndex = 58;
@@ -512,7 +512,7 @@
             // labelRS
             // 
             this.labelRS.AutoSize = true;
-            this.labelRS.Location = new System.Drawing.Point(887, 645);
+            this.labelRS.Location = new System.Drawing.Point(887, 679);
             this.labelRS.Name = "labelRS";
             this.labelRS.Size = new System.Drawing.Size(21, 13);
             this.labelRS.TabIndex = 59;
@@ -521,7 +521,7 @@
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(915, 645);
+            this.labelTotal.Location = new System.Drawing.Point(915, 679);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(0, 13);
             this.labelTotal.TabIndex = 60;
@@ -535,7 +535,7 @@
             this.groupBoxBebidas.Controls.Add(this.comboBoxBebida);
             this.groupBoxBebidas.Controls.Add(this.label25);
             this.groupBoxBebidas.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxBebidas.Location = new System.Drawing.Point(36, 449);
+            this.groupBoxBebidas.Location = new System.Drawing.Point(36, 483);
             this.groupBoxBebidas.Name = "groupBoxBebidas";
             this.groupBoxBebidas.Size = new System.Drawing.Size(440, 122);
             this.groupBoxBebidas.TabIndex = 61;
@@ -605,7 +605,7 @@
             this.btnFinalizarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnFinalizarPedido.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFinalizarPedido.Location = new System.Drawing.Point(699, 656);
+            this.btnFinalizarPedido.Location = new System.Drawing.Point(699, 690);
             this.btnFinalizarPedido.Name = "btnFinalizarPedido";
             this.btnFinalizarPedido.Size = new System.Drawing.Size(118, 39);
             this.btnFinalizarPedido.TabIndex = 62;
@@ -642,7 +642,7 @@
             this.btnPizzaInteira.IconVisible = true;
             this.btnPizzaInteira.IconZoom = 50D;
             this.btnPizzaInteira.IsTab = false;
-            this.btnPizzaInteira.Location = new System.Drawing.Point(36, 238);
+            this.btnPizzaInteira.Location = new System.Drawing.Point(36, 272);
             this.btnPizzaInteira.Name = "btnPizzaInteira";
             this.btnPizzaInteira.Normalcolor = System.Drawing.Color.DarkRed;
             this.btnPizzaInteira.OnHovercolor = System.Drawing.Color.DarkSalmon;
@@ -679,7 +679,7 @@
             this.btnPizzaMeio.IconVisible = true;
             this.btnPizzaMeio.IconZoom = 50D;
             this.btnPizzaMeio.IsTab = false;
-            this.btnPizzaMeio.Location = new System.Drawing.Point(562, 238);
+            this.btnPizzaMeio.Location = new System.Drawing.Point(562, 272);
             this.btnPizzaMeio.Name = "btnPizzaMeio";
             this.btnPizzaMeio.Normalcolor = System.Drawing.Color.DarkRed;
             this.btnPizzaMeio.OnHovercolor = System.Drawing.Color.DarkSalmon;
@@ -715,7 +715,7 @@
             this.btnBebida.IconVisible = true;
             this.btnBebida.IconZoom = 50D;
             this.btnBebida.IsTab = false;
-            this.btnBebida.Location = new System.Drawing.Point(36, 406);
+            this.btnBebida.Location = new System.Drawing.Point(36, 440);
             this.btnBebida.Name = "btnBebida";
             this.btnBebida.Normalcolor = System.Drawing.Color.DarkRed;
             this.btnBebida.OnHovercolor = System.Drawing.Color.DarkSalmon;
@@ -730,10 +730,47 @@
             this.btnBebida.TextFont = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBebida.Click += new System.EventHandler(this.BtnBebida_Click);
             // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.DarkRed;
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.DarkRed;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "            DADOS CLIENTE";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 50D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(36, 96);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.DarkRed;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.DarkSalmon;
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(966, 48);
+            this.bunifuFlatButton1.TabIndex = 70;
+            this.bunifuFlatButton1.Text = "            DADOS CLIENTE";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Gold;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
             // FrmNovoPedido
             // 
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1123, 716);
+            this.ClientSize = new System.Drawing.Size(1123, 760);
+            this.Controls.Add(this.bunifuFlatButton1);
             this.Controls.Add(this.btnBebida);
             this.Controls.Add(this.btnPizzaMeio);
             this.Controls.Add(this.btnPizzaInteira);
@@ -843,5 +880,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnPizzaInteira;
         private Bunifu.Framework.UI.BunifuFlatButton btnPizzaMeio;
         private Bunifu.Framework.UI.BunifuFlatButton btnBebida;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }

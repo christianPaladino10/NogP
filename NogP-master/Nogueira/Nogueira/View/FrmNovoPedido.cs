@@ -410,7 +410,7 @@ namespace Nogueira
                 {
                     groupBoxPizza1Sabor.Height = 122;
                     btnBebida.Top = groupBoxPizza1Sabor.Top + groupBoxPizza1Sabor.Height + 10;
-                    groupBoxBebidas.Top = groupBoxPizza1Sabor.Height * 4 - 40;
+                    groupBoxBebidas.Top = groupBoxPizza1Sabor.Height * 4 - 15;
                 }
                 else
                 {
@@ -443,7 +443,7 @@ namespace Nogueira
                 if (!p3)
                 {
                     groupBoxBebidas.Height = 122;
-                    groupBoxBebidas.Top = groupBoxBebidas.Height * 4 - 40;
+                    groupBoxBebidas.Top = groupBoxBebidas.Height * 4 - 15;
                 }
                 else
                 {
