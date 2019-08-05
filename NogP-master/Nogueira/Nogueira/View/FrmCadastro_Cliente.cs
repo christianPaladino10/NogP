@@ -45,5 +45,6 @@ namespace Nogueira
 			txtEndereco.Text = resposta.end;
 			txtBairro.Text = resposta.bairro;
 		}
-	}
+
+    }
 }

@@ -42,6 +42,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +63,7 @@
     <Compile Include="NogueiraBusiness\IngredienteBusiness.cs" />
     <Compile Include="NogueiraBusiness\MotoboyBusiness.cs" />
     <Compile Include="NogueiraBusiness\PizzaBusiness.cs" />
+    <Compile Include="NogueiraDAO\RelatorioDAO.cs" />
     <Compile Include="NogueiraBusiness\VendaBusiness.cs" />
     <Compile Include="NogueiraDAO\BebidaDAO.cs" />
     <Compile Include="NogueiraDAO\IngredienteDAO.cs" />
@@ -103,6 +105,13 @@
     <Compile Include="View ADM\Pizza\FrmCadastrarPizza.Designer.cs">
       <DependentUpon>FrmCadastrarPizza.cs</DependentUpon>
     </Compile>
+    <Compile Include="View ADM\Relatorio\FrmRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View ADM\Relatorio\FrmRelatorio.Designer.cs">
+      <DependentUpon>FrmRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NogueiraBusiness\RelatorioBusiness.cs" />
     <Compile Include="View\FrmCadastro_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View ADM\Motoboy\FrmMotoboy.resx">
       <DependentUpon>FrmMotoboy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View ADM\Relatorio\FrmRelatorio.resx">
+      <DependentUpon>FrmRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCadastro_Cliente.resx">
       <DependentUpon>FrmCadastro_Cliente.cs</DependentUpon>
