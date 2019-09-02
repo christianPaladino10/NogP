@@ -98,11 +98,11 @@
             // dataPizza
             // 
             this.dataPizza.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataPizza.Location = new System.Drawing.Point(128, 461);
+            this.dataPizza.Location = new System.Drawing.Point(78, 461);
             this.dataPizza.Name = "dataPizza";
             this.dataPizza.ReadOnly = true;
             this.dataPizza.RowTemplate.Height = 24;
-            this.dataPizza.Size = new System.Drawing.Size(1124, 193);
+            this.dataPizza.Size = new System.Drawing.Size(1281, 193);
             this.dataPizza.TabIndex = 6;
             // 
             // btnExcluirPizza
@@ -177,6 +177,7 @@
             this.btnEditarPizza.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarPizza.Textcolor = System.Drawing.Color.Silver;
             this.btnEditarPizza.TextFont = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPizza.Click += new System.EventHandler(this.BtnEditarPizza_Click);
             // 
             // FrmPizza
             // 

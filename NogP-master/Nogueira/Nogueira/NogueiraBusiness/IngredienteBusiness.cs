@@ -16,5 +16,13 @@ namespace Nogueira.NogueiraBusiness
 			IngredienteDAO ingredienteDAO = new IngredienteDAO();
 			return ingredienteDAO.GetIngredientes();			
 		}
-	}
+
+        internal List<IngredienteDTO> BuscarIngredientesDaPizzaSelecionada(PizzaDTO pizzaSelecionada)
+        {
+            IngredienteDAO ingredienteDAO = new IngredienteDAO();
+            var listaIdsPizzas = ingredienteDAO.BuscarIDIngredientesDaPizzaSelecionada(pizzaSelecionada);
+
+            return ingredienteDAO.BuscarIngredientes(listaIdsPizzas);
+        }
+    }
 }

@@ -11,5 +11,7 @@ namespace Nogueira.NogueiraDTO
 		public int Id_Pizza { get; set; }
 		public string Nome_Sabor { get; set; }
         public double Preco { get; set; }
+
+        public List<IngredienteDTO> listaIngredientes;
     }
 }

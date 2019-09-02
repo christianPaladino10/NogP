@@ -1,4 +1,5 @@
 ﻿using Nogueira.NogueiraBusiness;
+using Nogueira.NogueiraDTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,14 +27,14 @@ namespace Nogueira
             lblNome.Text = this.nomeUsuario + ",";
 
             PizzaBusiness pizzaBusiness = new PizzaBusiness();
-            var table = pizzaBusiness.BuscarTodasPizzas();
+            List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
+            BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
 
-            dataPizza.DataSource = table;
+            dataPizza.DataSource = BindingPizzaList;
 
             dataPizza.Columns["Id_Pizza"].HeaderText = "ID";
             dataPizza.Columns["Nome_Sabor"].HeaderText = "Descrição";
             dataPizza.Columns["Preco"].HeaderText = "Preço";
-            dataPizza.Rows.RemoveAt(0);
             dataPizza.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataPizza.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataPizza.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -50,13 +51,47 @@ namespace Nogueira
         {
             if (dataPizza.SelectedRows.Count == 0)
             {
-                return;
+                MessageBox.Show("Selecione uma pizza para ser excluída");
             }
-
-            foreach (DataGridViewRow row in dataPizza.SelectedRows)
+            else
             {
-                dataPizza.Rows.RemoveAt(row.Index);
+                DialogResult result = MessageBox.Show("Deseja realemnte excluir este item?", "Excluir Pizza",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    PizzaBusiness pizzaBusiness = new PizzaBusiness();
+
+                    var itemToDelete = (PizzaDTO)dataPizza.SelectedRows[0].DataBoundItem;
+                    pizzaBusiness.DeletarPizza(itemToDelete);
+
+                    var dataSource = (BindingList<PizzaDTO>)dataPizza.DataSource;
+                    dataSource.Remove(itemToDelete);
+                }
             }
         }
+
+        private void BtnEditarPizza_Click(object sender, EventArgs e)
+        {
+            if (dataPizza.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione uma pizza para ser editada");
+            }
+            else
+            {
+                var pizzaSelecionada = (PizzaDTO)dataPizza.SelectedRows[0].DataBoundItem;
+                PizzaBusiness pizzaBusiness = new PizzaBusiness();
+                IngredienteBusiness ingredBusiness = new IngredienteBusiness();
+
+                List<IngredienteDTO> listIngredientes = ingredBusiness.BuscarIngredientesDaPizzaSelecionada(pizzaSelecionada);
+
+                FrmCadastrarPizza frmPizza = new FrmCadastrarPizza();
+                frmPizza.objPizza = pizzaSelecionada;
+                frmPizza.listaIngredientes = listIngredientes;
+
+                frmPizza.Show();
+            }
+        }
+
     }
 }

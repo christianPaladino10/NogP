@@ -48,7 +48,13 @@ namespace Nogueira.NogueiraBusiness
 			return pizzaDAO.BuscarTodasPizzas();
 		}
 
-		internal double AlterarTextBoxConformeCombo(string pizzaSelecionada)
+        internal List<PizzaDTO> TodasPizzas()
+        {
+            PizzaDAO pizzaDAO = new PizzaDAO();
+            return pizzaDAO.TodasPizzas();
+        }
+
+        internal double AlterarTextBoxConformeCombo(string pizzaSelecionada)
 		{
 			PizzaDAO pizzaDAO = new PizzaDAO();
 			return pizzaDAO.AlterarTextBoxConformeCombo(pizzaSelecionada);
@@ -91,5 +97,27 @@ namespace Nogueira.NogueiraBusiness
 
 			return preco;
 		}
-	}
+
+        internal void DeletarPizza(PizzaDTO itemToDelete)
+        {
+            PizzaDAO pizzaDAO = new PizzaDAO();
+            pizzaDAO.DeletarNpraNPizzaIngrediente(itemToDelete.Id_Pizza);
+            pizzaDAO.ExcluirPizza(itemToDelete.Id_Pizza);
+        }
+
+        internal void EditarPizza(PizzaDTO itemToEdit)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Atualizar(PizzaDTO dadosPizza)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AtualizarIngredientesPizza(List<string> listIngrediente, PizzaDTO dadosPizza)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

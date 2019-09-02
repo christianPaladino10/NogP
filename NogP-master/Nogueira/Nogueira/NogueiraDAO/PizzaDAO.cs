@@ -141,7 +141,93 @@ namespace Nogueira.NogueiraDAO
 			}
 		}
 
-		internal void Cadastrar(PizzaDTO dadosPizza)
+        internal void ExcluirPizza(int id_Pizza)
+        {
+            ConectarAccess();
+
+            string comando = "Delete FROM Pizzas where Id_Pizza = @Id_Pizza";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            cmd.Parameters.Add("@Id_Pizza", OleDbType.Integer).Value = id_Pizza;         
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Pizza Excluída com Sucesso!");
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal void DeletarNpraNPizzaIngrediente(int id_Pizza)
+        {
+            ConectarAccess();
+            string comando = "Delete FROM Pizza_has_Ingredientes where Id_Pizza = @Id_Pizza";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            cmd.Parameters.Add("@Id_Pizza", OleDbType.Integer).Value = id_Pizza;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal List<PizzaDTO> TodasPizzas()
+        {
+            ConectarAccess();
+
+            List<PizzaDTO> pizzaList = new List<PizzaDTO>();
+            string comando = "SELECT * FROM Pizzas";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            try
+            {
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    PizzaDTO pizza = new PizzaDTO();
+                    pizza.Id_Pizza = Convert.ToInt32(reader["Id_Pizza"]);
+                    pizza.Nome_Sabor = reader["Nome_Sabor"].ToString();
+                    pizza.Preco = Convert.ToDouble(reader["Preco"]);
+
+                    pizzaList.Add(pizza);
+                }
+                return pizzaList;
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal void Cadastrar(PizzaDTO dadosPizza)
 		{
 			ConectarAccess();
 
@@ -172,6 +258,8 @@ namespace Nogueira.NogueiraDAO
 				if (conn != null) conn.Dispose();
 			}
 		}
+
+
 
 	}
 }
