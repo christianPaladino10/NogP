@@ -26,11 +26,7 @@ namespace Nogueira
             lblNome.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
             lblNome.Text = this.nomeUsuario + ",";
 
-            PizzaBusiness pizzaBusiness = new PizzaBusiness();
-            List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
-            BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
-
-            dataPizza.DataSource = BindingPizzaList;
+            PreencherDataGrid();
 
             dataPizza.Columns["Id_Pizza"].HeaderText = "ID";
             dataPizza.Columns["Nome_Sabor"].HeaderText = "Descrição";
@@ -39,6 +35,21 @@ namespace Nogueira
             dataPizza.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataPizza.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+        }
+
+        internal void PreencherDataGrid()
+        {
+            PizzaBusiness pizzaBusiness = new PizzaBusiness();
+            List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
+            BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
+
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = PizzaList;
+
+            dataPizza.DataSource = bSource;
+            dataPizza.Update();
+            dataPizza.Refresh();
+            dataPizza.Focus();
         }
 
         private void btnCadastrarPizza_Click(object sender, EventArgs e)
@@ -80,16 +91,15 @@ namespace Nogueira
             else
             {
                 var pizzaSelecionada = (PizzaDTO)dataPizza.SelectedRows[0].DataBoundItem;
-                PizzaBusiness pizzaBusiness = new PizzaBusiness();
                 IngredienteBusiness ingredBusiness = new IngredienteBusiness();
 
                 List<IngredienteDTO> listIngredientes = ingredBusiness.BuscarIngredientesDaPizzaSelecionada(pizzaSelecionada);
 
-                FrmCadastrarPizza frmPizza = new FrmCadastrarPizza();
-                frmPizza.objPizza = pizzaSelecionada;
-                frmPizza.listaIngredientes = listIngredientes;
+                FrmCadastrarPizza frmCadastrarPizza = new FrmCadastrarPizza();
+                frmCadastrarPizza.objPizza = pizzaSelecionada;
+                frmCadastrarPizza.listaIngredientes = listIngredientes;
 
-                frmPizza.Show();
+                frmCadastrarPizza.Show();
             }
         }
 

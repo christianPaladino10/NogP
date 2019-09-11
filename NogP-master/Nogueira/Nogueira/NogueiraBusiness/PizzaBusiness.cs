@@ -112,12 +112,15 @@ namespace Nogueira.NogueiraBusiness
 
         internal void Atualizar(PizzaDTO dadosPizza)
         {
-            throw new NotImplementedException();
+            PizzaDAO pizzaDAO = new PizzaDAO();
+            pizzaDAO.AtualizarPizza(dadosPizza);
         }
 
         internal void AtualizarIngredientesPizza(List<string> listIngrediente, PizzaDTO dadosPizza)
         {
-            throw new NotImplementedException();
+            IngredienteDAO ingredienteDAO = new IngredienteDAO();
+            ingredienteDAO.DeletarIngredientesPizza(dadosPizza.Id_Pizza);
+            ingredienteDAO.CadastrarPizzaHasIngredientes(dadosPizza.Id_Pizza, listIngrediente);
         }
     }
 }

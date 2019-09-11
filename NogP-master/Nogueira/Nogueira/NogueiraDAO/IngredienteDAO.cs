@@ -150,5 +150,31 @@ namespace Nogueira.NogueiraDAO
             if (conn.State == ConnectionState.Open) conn.Close();
             if (conn != null) conn.Dispose();
         }
+
+        internal void DeletarIngredientesPizza(int idPizza)
+        {
+            ConectarAccess();
+
+            string comando = "DELETE FROM Pizza_has_Ingredientes " +
+                                "WHERE Id_Pizza = @Id_Pizza";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+            cmd.Parameters.Add("@Id_Pizza", OleDbType.VarChar).Value = idPizza;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
     }
 }

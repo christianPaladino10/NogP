@@ -178,14 +178,31 @@ namespace Nogueira
                 var listIngrediente = new List<string>();
                 BuscarIngredientes(listIngrediente);
 
-                listIngrediente = listIngrediente.Distinct().ToList();
+                listIngrediente = listIngrediente.Distinct().Where(x => !string.IsNullOrEmpty(x)).ToList();
 
+                dadosPizza.Id_Pizza = objPizza.Id_Pizza;
+                dadosPizza.Nome_Sabor = txtSaborPizza.Text.Trim();
                 string preco = maskedTextBoxPreco.Text.Replace("R$ ", "").Trim();
                 dadosPizza.Preco = double.Parse(preco);
                 pizzaBusiness.Atualizar(dadosPizza);
 
-                pizzaBusiness.AtualizarIngredientesPizza(listIngrediente, dadosPizza);
+                List<string> listaIngredientesCarregadosNaTela = listaIngredientes.Select(x => x.Id_Ingrediente.ToString()).ToList();
 
+                if (!listaIngredientesCarregadosNaTela.SequenceEqual(listIngrediente))
+                {
+                    pizzaBusiness.AtualizarIngredientesPizza(listIngrediente, dadosPizza);
+                    MessageBox.Show("Pizza Atualizada com Sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Pizza Atualizada com Sucesso!");
+                }
+
+                List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
+                BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
+
+                FrmPizza frmPizza = new FrmPizza();
+                frmPizza.PreencherDataGrid();
             }
         }
     }

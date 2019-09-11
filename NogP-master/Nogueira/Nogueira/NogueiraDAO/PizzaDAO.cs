@@ -11,136 +11,169 @@ using System.Data.Common;
 
 namespace Nogueira.NogueiraDAO
 {
-	public class PizzaDAO
-	{
-		OleDbConnection conn;
+    public class PizzaDAO
+    {
+        OleDbConnection conn;
 
-		public void ConectarAccess()
-		{
-			Conexao con = new Conexao();
-			conn = con.ConectarAccess(ref conn);
-		}
-		
-		internal Nullable <int> BuscarIdPizza(PizzaDTO dadosPizza)
-		{
-			ConectarAccess();
+        public void ConectarAccess()
+        {
+            Conexao con = new Conexao();
+            conn = con.ConectarAccess(ref conn);
+        }
 
-			int id_Pizza;
-			string comando = "SELECT Id_Pizza FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
+        internal Nullable<int> BuscarIdPizza(PizzaDTO dadosPizza)
+        {
+            ConectarAccess();
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
+            int id_Pizza;
+            string comando = "SELECT Id_Pizza FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
 
-			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-			try
-			{
-				return id_Pizza = (int)cmd.ExecuteScalar();
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-				return null;
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
+            cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
 
-		}
+            try
+            {
+                return id_Pizza = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
 
-		internal bool PizzaCadastrada(string nome_Sabor)
-		{
-			ConectarAccess();
+        }
 
-			string result = "";
-			string comando = "SELECT Nome_Sabor FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
+        internal bool PizzaCadastrada(string nome_Sabor)
+        {
+            ConectarAccess();
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
+            string result = "";
+            string comando = "SELECT Nome_Sabor FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
 
-			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = nome_Sabor;
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-			try
-			{
-				result = (string)cmd.ExecuteScalar();
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
+            cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = nome_Sabor;
 
-			if (result == string.Empty || result == null)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
+            try
+            {
+                result = (string)cmd.ExecuteScalar();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
 
-		internal double AlterarTextBoxConformeCombo(string nome_Sabor)
-		{
-			ConectarAccess();
+            if (result == string.Empty || result == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-			string comando = "SELECT Preco FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
+        internal double AlterarTextBoxConformeCombo(string nome_Sabor)
+        {
+            ConectarAccess();
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
-			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = nome_Sabor;
+            string comando = "SELECT Preco FROM Pizzas WHERE Nome_Sabor = @Nome_Sabor";
 
-			try
-			{
-				var result = cmd.ExecuteScalar();
-				double preco = double.Parse(result.ToString());
-				return preco;
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-				return 0;
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
-		}
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+            cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = nome_Sabor;
 
-		internal DataTable BuscarTodasPizzas()
-		{
-			ConectarAccess();
+            try
+            {
+                var result = cmd.ExecuteScalar();
+                double preco = double.Parse(result.ToString());
+                return preco;
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return 0;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
 
-			DataTable dt = new DataTable();
-			string comando = "SELECT * FROM Pizzas";
+        internal DataTable BuscarTodasPizzas()
+        {
+            ConectarAccess();
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
+            DataTable dt = new DataTable();
+            string comando = "SELECT * FROM Pizzas";
 
-			try
-			{
-				dt.Load(cmd.ExecuteReader());
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-				var rw = dt.NewRow();  
-				rw[1] = "";                  
-				dt.Rows.InsertAt(rw, 0);
-				return dt;
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-				return null;
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
-		}
+            try
+            {
+                dt.Load(cmd.ExecuteReader());
 
+                var rw = dt.NewRow();
+                rw[1] = "";
+                dt.Rows.InsertAt(rw, 0);
+                return dt;
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal void AtualizarPizza(PizzaDTO dadosPizza)
+        {
+            ConectarAccess();
+
+            string comando = "UPDATE Pizzas SET Nome_Sabor = @Nome_Sabor, Preco = @Preco " +
+                                    "WHERE Id_Pizza = @Id_Pizza";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
+            string preco = dadosPizza.Preco.ToString();
+            string aux = preco.Substring(0, 2);
+            string aux2 = preco.Substring(2, 2);
+            preco = aux + "," + aux2;
+            cmd.Parameters.Add("@Preco", OleDbType.Currency).Value = preco;
+            cmd.Parameters.Add("@Id_Pizza", OleDbType.VarChar).Value = dadosPizza.Id_Pizza;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                //MessageBox.Show("Pizza Atualizada com Sucesso!");
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+      
         internal void ExcluirPizza(int id_Pizza)
         {
             ConectarAccess();
@@ -149,7 +182,7 @@ namespace Nogueira.NogueiraDAO
 
             OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-            cmd.Parameters.Add("@Id_Pizza", OleDbType.Integer).Value = id_Pizza;         
+            cmd.Parameters.Add("@Id_Pizza", OleDbType.Integer).Value = id_Pizza;
 
             try
             {
@@ -228,38 +261,36 @@ namespace Nogueira.NogueiraDAO
         }
 
         internal void Cadastrar(PizzaDTO dadosPizza)
-		{
-			ConectarAccess();
+        {
+            ConectarAccess();
 
-			string comando = "INSERT INTO Pizzas (Nome_Sabor, Preco)" +
-									"values(@Nome_Sabor, @Preco)";
+            string comando = "INSERT INTO Pizzas (Nome_Sabor, Preco)" +
+                                    "values(@Nome_Sabor, @Preco)";
 
-			OleDbCommand cmd = new OleDbCommand(comando, conn);
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
 
-			cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
-			string preco = dadosPizza.Preco.ToString();
-			string aux = preco.Substring(0, 2);
-			string aux2 = preco.Substring(2, 2);
-			preco = aux + "," + aux2;
-			cmd.Parameters.Add("@Preco", OleDbType.Currency).Value = preco;
+            cmd.Parameters.Add("@Nome_Sabor", OleDbType.VarChar).Value = dadosPizza.Nome_Sabor;
+            string preco = dadosPizza.Preco.ToString();
+            string aux = preco.Substring(0, 2);
+            string aux2 = preco.Substring(2, 2);
+            preco = aux + "," + aux2;
+            cmd.Parameters.Add("@Preco", OleDbType.Currency).Value = preco;
 
-			try
-			{
-				cmd.ExecuteNonQuery();
-				MessageBox.Show("Pizza Cadastrada com Sucesso!");
-			}
-			catch (Exception E)
-			{
-				MessageBox.Show(E.Message);
-			}
-			finally
-			{
-				if (conn.State == ConnectionState.Open) conn.Close();
-				if (conn != null) conn.Dispose();
-			}
-		}
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Pizza Cadastrada com Sucesso!");
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
 
-
-
-	}
+    }
 }
