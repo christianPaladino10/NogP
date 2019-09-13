@@ -1,6 +1,7 @@
 ﻿using Nogueira.NogueiraBusiness;
 using Nogueira.NogueiraDTO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,20 +29,15 @@ namespace Nogueira
 
             PreencherDataGrid();
 
-            dataPizza.Columns["Id_Pizza"].HeaderText = "ID";
-            dataPizza.Columns["Nome_Sabor"].HeaderText = "Descrição";
-            dataPizza.Columns["Preco"].HeaderText = "Preço";
-            dataPizza.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataPizza.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataPizza.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
         }
 
         internal void PreencherDataGrid()
         {
+            dataPizza.DataSource = typeof(IList);
+
             PizzaBusiness pizzaBusiness = new PizzaBusiness();
             List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
-            BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
+            //BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
 
             BindingSource bSource = new BindingSource();
             bSource.DataSource = PizzaList;
@@ -49,12 +45,19 @@ namespace Nogueira
             dataPizza.DataSource = bSource;
             dataPizza.Update();
             dataPizza.Refresh();
-            dataPizza.Focus();
+
+
+            dataPizza.Columns["Id_Pizza"].HeaderText = "ID";
+            dataPizza.Columns["Nome_Sabor"].HeaderText = "Descrição";
+            dataPizza.Columns["Preco"].HeaderText = "Preço";
+            dataPizza.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataPizza.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataPizza.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void btnCadastrarPizza_Click(object sender, EventArgs e)
         {
-            FrmCadastrarPizza frmcadastroPizza = new FrmCadastrarPizza();
+            FrmCadastrarPizza frmcadastroPizza = new FrmCadastrarPizza(this);
             frmcadastroPizza.Show();
         }
 
@@ -95,11 +98,13 @@ namespace Nogueira
 
                 List<IngredienteDTO> listIngredientes = ingredBusiness.BuscarIngredientesDaPizzaSelecionada(pizzaSelecionada);
 
-                FrmCadastrarPizza frmCadastrarPizza = new FrmCadastrarPizza();
+                FrmCadastrarPizza frmCadastrarPizza = new FrmCadastrarPizza(this);
                 frmCadastrarPizza.objPizza = pizzaSelecionada;
                 frmCadastrarPizza.listaIngredientes = listIngredientes;
 
                 frmCadastrarPizza.Show();
+
+
             }
         }
 

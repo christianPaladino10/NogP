@@ -14,12 +14,15 @@ namespace Nogueira
 {
     public partial class FrmCadastrarPizza : Form
     {
+        public FrmPizza _parentForm { get; set; }
+
         public PizzaDTO objPizza = new PizzaDTO();
         public List<IngredienteDTO> listaIngredientes = new List<IngredienteDTO>();
 
-        public FrmCadastrarPizza()
+        public FrmCadastrarPizza(FrmPizza parent)
         {
             InitializeComponent();
+            _parentForm = parent;
         }
 
         private void FrmCadastrarPizza_Load(object sender, EventArgs e)
@@ -201,8 +204,8 @@ namespace Nogueira
                 List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
                 BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
 
-                FrmPizza frmPizza = new FrmPizza();
-                frmPizza.PreencherDataGrid();
+                _parentForm.PreencherDataGrid();
+
             }
         }
     }

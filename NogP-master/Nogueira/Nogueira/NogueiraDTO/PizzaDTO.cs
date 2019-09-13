@@ -1,17 +1,21 @@
-﻿using System;
+﻿using Nogueira.NogueiraBusiness;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Nogueira.NogueiraDTO
 {
-    public class PizzaDTO
+    public class PizzaDTO : NotifyPropertyChanged
     {
-		public int Id_Pizza { get; set; }
-		public string Nome_Sabor { get; set; }
-        public double Preco { get; set; }
+        private int id_Pizza;
+        public int Id_Pizza { get => id_Pizza; set { id_Pizza = value; RaisePropertyChanged(); } }
+        public string Nome_Sabor { get => nome_Sabor; set { nome_Sabor = value; RaisePropertyChanged(); } }
+        public double Preco { get => preco; set { preco = value; RaisePropertyChanged(); } }
 
-        public List<IngredienteDTO> listaIngredientes;
+        private string nome_Sabor;
+        private double preco;
     }
 }

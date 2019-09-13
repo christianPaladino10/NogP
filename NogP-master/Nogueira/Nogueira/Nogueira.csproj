@@ -62,6 +62,8 @@
     <Compile Include="NogueiraBusiness\BebidaBusiness.cs" />
     <Compile Include="NogueiraBusiness\IngredienteBusiness.cs" />
     <Compile Include="NogueiraBusiness\MotoboyBusiness.cs" />
+    <Compile Include="NogueiraDTO\FrmPizzaContext.cs" />
+    <Compile Include="NogueiraDTO\NotifyPropertyChanged.cs" />
     <Compile Include="NogueiraBusiness\PizzaBusiness.cs" />
     <Compile Include="NogueiraDAO\RelatorioDAO.cs" />
     <Compile Include="NogueiraBusiness\VendaBusiness.cs" />
