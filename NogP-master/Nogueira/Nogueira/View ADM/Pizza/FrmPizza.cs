@@ -98,9 +98,11 @@ namespace Nogueira
 
                 List<IngredienteDTO> listIngredientes = ingredBusiness.BuscarIngredientesDaPizzaSelecionada(pizzaSelecionada);
 
-                FrmCadastrarPizza frmCadastrarPizza = new FrmCadastrarPizza(this);
-                frmCadastrarPizza.objPizza = pizzaSelecionada;
-                frmCadastrarPizza.listaIngredientes = listIngredientes;
+                FrmCadastrarPizza frmCadastrarPizza = new FrmCadastrarPizza(this)
+                {
+                    objPizza = pizzaSelecionada,
+                    listaIngredientes = listIngredientes
+                };
 
                 frmCadastrarPizza.Show();
 
