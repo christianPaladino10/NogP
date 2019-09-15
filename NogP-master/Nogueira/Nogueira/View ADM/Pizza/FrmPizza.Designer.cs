@@ -102,7 +102,7 @@
             this.dataPizza.Name = "dataPizza";
             this.dataPizza.ReadOnly = true;
             this.dataPizza.RowTemplate.Height = 24;
-            this.dataPizza.Size = new System.Drawing.Size(1281, 193);
+            this.dataPizza.Size = new System.Drawing.Size(1281, 438);
             this.dataPizza.TabIndex = 6;
             // 
             // btnExcluirPizza

@@ -135,6 +135,8 @@ namespace Nogueira
                     pizzaBusiness.Cadastrar(dadosPizza);
 
                     pizzaBusiness.CadastrarIngredientesPizza(listIngrediente, dadosPizza);
+
+                    _parentForm.PreencherDataGrid();
                 }
             }
         }
@@ -200,9 +202,6 @@ namespace Nogueira
                 {
                     MessageBox.Show("Pizza Atualizada com Sucesso!");
                 }
-
-                List<PizzaDTO> PizzaList = pizzaBusiness.TodasPizzas();
-                BindingList<PizzaDTO> BindingPizzaList = new BindingList<PizzaDTO>(PizzaList);
 
                 _parentForm.PreencherDataGrid();
 

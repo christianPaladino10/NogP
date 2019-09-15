@@ -79,8 +79,7 @@ namespace Nogueira
                     var itemToDelete = (PizzaDTO)dataPizza.SelectedRows[0].DataBoundItem;
                     pizzaBusiness.DeletarPizza(itemToDelete);
 
-                    var dataSource = (BindingList<PizzaDTO>)dataPizza.DataSource;
-                    dataSource.Remove(itemToDelete);
+                    PreencherDataGrid();
                 }
             }
         }
