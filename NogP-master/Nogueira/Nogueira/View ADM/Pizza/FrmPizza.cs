@@ -69,7 +69,7 @@ namespace Nogueira
             }
             else
             {
-                DialogResult result = MessageBox.Show("Deseja realemnte excluir este item?", "Excluir Pizza",
+                DialogResult result = MessageBox.Show("Deseja realmente excluir este item?", "Excluir Pizza",
                                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -104,8 +104,6 @@ namespace Nogueira
                 };
 
                 frmCadastrarPizza.Show();
-
-
             }
         }
 

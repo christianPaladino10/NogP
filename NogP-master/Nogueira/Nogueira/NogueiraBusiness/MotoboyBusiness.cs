@@ -22,5 +22,23 @@ namespace Nogueira.NogueiraBusiness
 			MotoboyDAO motoboyDAO = new MotoboyDAO();
 			return motoboyDAO.BuscarTodosMotoboy();
 		}
-	}
+
+        internal List<MotoboyDTO> TodosMotoboy()
+        {
+            MotoboyDAO motoboyDAO = new MotoboyDAO();
+            return motoboyDAO.TodosMotoboy();
+        }
+
+        internal void DeletarMotoboy(MotoboyDTO itemToDelete)
+        {
+            MotoboyDAO motoboyDAO = new MotoboyDAO();
+            motoboyDAO.DeletarMotoboy(itemToDelete.Id_Motoboy);
+        }
+
+        internal void AtualizarMotoboy(MotoboyDTO dadosMotoboy)
+        {
+            MotoboyDAO motoboyDAO = new MotoboyDAO();
+            motoboyDAO.Atualizar(dadosMotoboy);
+        }
+    }
 }

@@ -11,5 +11,6 @@ namespace Nogueira.NogueiraDTO
 		public int IdBebida { get; set; }
 		public string DescricaoBebida { get; set; }
 		public double Preco { get; set; }
-	}
+        public bool IsEdit { get; set; }
+    }
 }

@@ -28,6 +28,8 @@ namespace Nogueira
             MotoboyBusiness motoboyBusiness = new MotoboyBusiness();
             BebidaBusiness bebidaBusiness = new BebidaBusiness();
 
+            labelTotal.Font = new Font("Arial", 18F, System.Drawing.FontStyle.Regular);
+
             comboBoxMotoboy.DataSource = motoboyBusiness.BuscarTodosMotoboy();
             comboBoxMotoboy.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMotoboy.ValueMember = "Id_Motoboy";
@@ -95,7 +97,14 @@ namespace Nogueira
                 double preco = pizzaBusiness.AlterarTextBoxConformeCombo(pizzaSelecionada);
                 string precoText = preco.ToString();
 
-                maskedTextBoxPreco.Text = precoText;
+                if (precoText.Length == 2)
+                {
+                    maskedTextBoxPreco.Text = precoText + "00";
+                }
+                else
+                {
+                    maskedTextBoxPreco.Text = precoText;
+                }
             }
         }
 
@@ -108,7 +117,14 @@ namespace Nogueira
                 double preco = pizzaBusiness.AlterarTextBoxConformeCombo(pizzaSelecionada);
                 string precoText = preco.ToString();
 
-                maskedTextBoxPrecoMeio1.Text = precoText;
+                if (precoText.Length == 2)
+                {
+                    maskedTextBoxPrecoMeio1.Text = precoText + "00";
+                }
+                else
+                {
+                    maskedTextBoxPrecoMeio1.Text = precoText;
+                }
             }
         }
 
@@ -121,7 +137,14 @@ namespace Nogueira
                 double preco = pizzaBusiness.AlterarTextBoxConformeCombo(pizzaSelecionada);
                 string precoText = preco.ToString();
 
-                maskedTextBoxPrecoMeio2.Text = precoText;
+                if (precoText.Length == 2)
+                {
+                    maskedTextBoxPrecoMeio2.Text = precoText + "00";
+                }
+                else
+                {
+                    maskedTextBoxPrecoMeio2.Text = precoText;
+                }
             }
         }
 

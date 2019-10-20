@@ -15,7 +15,6 @@ namespace Nogueira
     public partial class FrmCadastrarPizza : Form
     {
         public FrmPizza _parentForm { get; set; }
-
         public PizzaDTO objPizza = new PizzaDTO();
         public List<IngredienteDTO> listaIngredientes = new List<IngredienteDTO>();
 
@@ -137,6 +136,7 @@ namespace Nogueira
                     pizzaBusiness.CadastrarIngredientesPizza(listIngrediente, dadosPizza);
 
                     _parentForm.PreencherDataGrid();
+                    this.Close();
                 }
             }
         }
@@ -204,7 +204,7 @@ namespace Nogueira
                 }
 
                 _parentForm.PreencherDataGrid();
-
+                this.Close();
             }
         }
     }

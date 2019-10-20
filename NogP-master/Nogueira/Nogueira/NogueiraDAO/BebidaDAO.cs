@@ -77,6 +77,61 @@ namespace Nogueira.NogueiraDAO
 
         }
 
+        internal void AtualizarBebida(BebidaDTO dadosBebida)
+        {
+            ConectarAccess();
+
+            string comando = "UPDATE Bebidas SET Descricao = @Descricao, Preco = @Preco " +
+                                    "WHERE Id_Bebida = @Id_Bebida";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            cmd.Parameters.Add("@Descricao", OleDbType.VarChar).Value = dadosBebida.DescricaoBebida;
+            cmd.Parameters.Add("@Preco", OleDbType.Currency).Value = dadosBebida.Preco;
+            cmd.Parameters.Add("@Id_Bebida", OleDbType.VarChar).Value = dadosBebida.IdBebida;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Bebida Atualizada com Sucesso!");
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal void ExcluirBebida(int idBebida)
+        {
+            ConectarAccess();
+
+            string comando = "Delete FROM Bebidas where Id_Bebida= @Id_Bebida";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            cmd.Parameters.Add("@Id_Bebida", OleDbType.Integer).Value = idBebida;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Bebida Excluída com Sucesso!");
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
         internal DataTable BuscarTodasBebidas()
         {
             ConectarAccess();
@@ -94,6 +149,42 @@ namespace Nogueira.NogueiraDAO
                 rw[1] = "";
                 dt.Rows.InsertAt(rw, 0);
                 return dt;
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                if (conn != null) conn.Dispose();
+            }
+        }
+
+        internal List<BebidaDTO> TodasBebidas()
+        {
+            ConectarAccess();
+
+            List<BebidaDTO> bebidaList = new List<BebidaDTO>();
+            string comando = "SELECT * FROM Bebidas";
+
+            OleDbCommand cmd = new OleDbCommand(comando, conn);
+
+            try
+            {
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    BebidaDTO bebida = new BebidaDTO();
+                    bebida.IdBebida = Convert.ToInt32(reader["Id_Bebida"]);
+                    bebida.DescricaoBebida = reader["Descricao"].ToString();
+                    bebida.Preco = Convert.ToDouble(reader["Preco"]);
+
+                    bebidaList.Add(bebida);
+                }
+                return bebidaList;
             }
             catch (Exception E)
             {
